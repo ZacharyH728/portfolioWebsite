@@ -1,9 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-import NavBar from './components/navbar';
+import Taskbar from './components/taskbar';
 function App() {
   return (
-    <NavBar />
+    <div>
+      <Taskbar />
+    </div>
   );
 }
 

@@ -1,35 +1,71 @@
-.navBar {
-  display: flex;
-  float: right;
+* {
+  font-family: Microsoft Sans Serif;
 }
-.button {
+button {
   all: unset;
-  width: fit-content; 
-  text-align: center;
-  margin: 1vh;
-  position: relative;
-  animation-name: test;
-  animation-duration: 2s;
+  /* padding: 0 4vw; */
+  height: 100%;
+  vertical-align: text-bottom;
 }
-.button:hover {
-  color: brown;
-  box-shadow: 0 2px 0px red;
-  animation-name: test;
-  animation-duration: 2s;
-}
-
-.button:active {
-  color: green;
-  position: relative;
-  /* transform: rotate(.5turn);
-  transform: rotate(1turn); */
-  animation-name: test;
-  animation-duration: 2s;
+.taskBar {
+  bottom: 0px;
+  width: 100%;
+  height: 5vw;
+  max-height: 55px;
+  min-height: 55px;
+  position: absolute;
+  background-color: #3b77bc;
 }
 
-@keyframes test {
-  25% {left:25px;}
-  50% {left:0px;}
-  75% {right:500px;}
-  100% {right:0px;}
+.tasks {
+  display: inline-block;
+  position: static;
+  height: 100%;
+}
+
+.task {
+  padding: 0 1em;
+  height: inherit;
+  display: inline-block;
+}
+
+#taskName {
+  padding: 0 1em;
+  display: inline;
+}
+
+#taskIcon {
+  height: 45px;
+  width: 45px;
+  display: inline;
+}
+
+.greenbar {
+  display: inline-block;
+  position: relative;
+  background-image: linear-gradient(to bottom, #4ad449, #3dae3c);
+  width: fit-content;
+  height: 100%;
+  z-index: 0;
+  border-radius: 10px/30px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+#StartLogo {
+  display: inline;
+  height: inherit;
+  scale: 75%;
+  z-index: 5;
+  vertical-align: bottom;
+}
+
+#Start {
+  display: inline;
+  height: inherit;
+  padding-right: 45px;
+  font-style: italic;
+  font-size: 2.5em;
+  color: white;
+  z-index: 10;
 }

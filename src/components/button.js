@@ -4,7 +4,10 @@ import '../App.css'
 export default class Navbutton extends Component {
     render() {
         return(
-            <button className="button">{this.props.title}</button>
+            <div className={this.props.class}>
+                <img id="taskIcon" src={this.props.icon}/>
+                <button className="button" id={this.props.id}>{this.props.title}</button>
+            </div>
         )
     }
 }
