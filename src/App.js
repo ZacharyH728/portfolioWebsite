@@ -1,11 +1,16 @@
 import './App.css';
 import Taskbar from './components/taskbar';
-function App() {
-  return (
-    <div>
-      <Taskbar />
-    </div>
-  );
+import startMenu from './components/startMenu';
+import { Component } from 'react';
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+      <Taskbar/>
+      </div>
+    )
+  }
 }
 
 export default App;

@@ -1,21 +1,73 @@
 * {
   font-family: Microsoft Sans Serif;
+  color: white;
+  
 }
+
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
 button {
   all: unset;
   /* padding: 0 4vw; */
   height: 100%;
   vertical-align: text-bottom;
 }
+
+.footer {
+  bottom: 0px;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+}
+
+.StartMenu {
+  left: .15em;
+  background-image: radial-gradient(#7696cd,#1060c8);
+  width: 30em;
+  height: 30em;
+  position: relative;
+  bottom: 0px;
+  margin-top: auto;
+  border-radius: .5em;
+  box-shadow: 1px 1px 5px 1px black, 1px 1px 4px 1px white inset;
+}
+
+.UserGroup {
+  display: inline-block;
+  padding: 2%;
+}
+
+#UserProfilePicture{
+  display: inline;
+  border: .15em solid white;
+  border-radius: .2em;
+}
+
+#UserName{
+  padding-left: .5em;
+  position: relative;
+  bottom: 1em;
+  display: inline;
+  vertical-align: middle;
+  font-size: 1.5em;
+}
+
 .taskBar {
+  box-shadow: 1px 1px 5px 1px black;
+  margin-top: auto;
   bottom: 0px;
   width: 100%;
   height: 5vw;
   max-height: 55px;
   min-height: 55px;
-  position: absolute;
-  background-color: #3b77bc;
-}
+  /* position: absolute; */
+  background-image: linear-gradient(to bottom right, #296fe6, #3766b8);}
 
 .tasks {
   display: inline-block;
@@ -24,23 +76,41 @@ button {
 }
 
 .task {
-  padding: 0 1em;
-  height: inherit;
+  position: relative;
+  margin: 0 .5em;
+  padding: 0 .5em;
+  height: 90%;
+  bottom: .1em;
   display: inline-block;
+  background-image: linear-gradient(to bottom right, #4780e1, #5389e7);
+  border-radius: 5px;
+}
+
+.task:hover {
+  filter: brightness(110%);
+}
+
+.task:active {
+  filter: brightness(90%);
 }
 
 #taskName {
-  padding: 0 1em;
+  padding: 0 .5em;
+  padding-left: .25em;
   display: inline;
+  font-size: 150%;
+  color: white;
 }
 
 #taskIcon {
-  height: 45px;
-  width: 45px;
+  height: 40px;
+  width: 40px;
   display: inline;
+  vertical-align: super;
 }
 
-.greenbar {
+
+.StartButton {
   display: inline-block;
   position: relative;
   background-image: linear-gradient(to bottom, #4ad449, #3dae3c);
@@ -51,6 +121,15 @@ button {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
+
+.StartButton:hover {
+  filter: brightness(110%);
+}
+
+.StartButton:active {
+  filter: brightness(90%);
+}
+
 
 #StartLogo {
   display: inline;
