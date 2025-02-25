@@ -7,7 +7,6 @@ export default class StartMenu extends Component {
                 <div className="UserGroup">
                     <img id="UserProfilePicture" src={user} alt="user"/>
                     <div id="UserName">Zachary Hill</div>
-
                 </div>
             </div>
         )

@@ -1,8 +1,12 @@
 * {
-  font-family: Microsoft Sans Serif;
+  font-family: "Arial";
+  font-weight: bold;
   color: white;
+  image-rendering: pixelated;
+  /* user-select: none; */
   
 }
+
 
 img {
   -webkit-user-drag: none;
@@ -19,11 +23,18 @@ button {
 }
 
 .footer {
+  user-select: none;
   bottom: 0px;
   width: 100%;
   position: fixed;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
+  background-image: linear-gradient(to bottom right, #296fe6, #3766b8);
+  box-shadow: 1px 1px 5px 1px black;
+  height: 4vw;
+  max-height: 55px;
+  min-height: 55px;
 }
 
 .StartMenu {
@@ -31,8 +42,8 @@ button {
   background-image: radial-gradient(#7696cd,#1060c8);
   width: 30em;
   height: 30em;
-  position: relative;
-  bottom: 0px;
+  position: absolute;
+  bottom: 3.9vh;
   margin-top: auto;
   border-radius: .5em;
   box-shadow: 1px 1px 5px 1px black, 1px 1px 4px 1px white inset;
@@ -59,30 +70,40 @@ button {
 }
 
 .taskBar {
-  box-shadow: 1px 1px 5px 1px black;
   margin-top: auto;
-  bottom: 0px;
-  width: 100%;
-  height: 5vw;
-  max-height: 55px;
-  min-height: 55px;
-  /* position: absolute; */
-  background-image: linear-gradient(to bottom right, #296fe6, #3766b8);}
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100%;
+  width: fit-content;
+}
+
+
+.timeDate {
+  padding-right: .25vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* position: absolute;
+  top: 0px;
+  right: 0px */
+}
 
 .tasks {
-  display: inline-block;
+  display: flex;
   position: static;
   height: 100%;
 }
 
 .task {
-  position: relative;
+  /* position: relative; */
   margin: 0 .5em;
   padding: 0 .5em;
-  height: 90%;
+  /* height: 90%; */
   bottom: .1em;
-  display: inline-block;
-  background-image: linear-gradient(to bottom right, #4780e1, #5389e7);
+  display: flex;
+  align-items: center;
+  /* background-image: linear-gradient(to bottom right, #4780e1, #5389e7); */
   border-radius: 5px;
 }
 
@@ -98,23 +119,23 @@ button {
   padding: 0 .5em;
   padding-left: .25em;
   display: inline;
-  font-size: 150%;
+  font-size: 100%;
   color: white;
 }
 
 #taskIcon {
   height: 40px;
   width: 40px;
-  display: inline;
-  vertical-align: super;
 }
 
 
 .StartButton {
-  display: inline-block;
-  position: relative;
+  display: flex;
+  /* position: relative; */
+  align-items: center;
   background-image: linear-gradient(to bottom, #4ad449, #3dae3c);
   width: fit-content;
+  /* padding: 10px 0; */
   height: 100%;
   z-index: 0;
   border-radius: 10px/30px;
@@ -122,9 +143,9 @@ button {
   border-bottom-left-radius: 0;
 }
 
-.StartButton:hover {
-  filter: brightness(110%);
-}
+/* .StartButton:hover {
+  filter: brightness(110%) !important;
+} */
 
 .StartButton:active {
   filter: brightness(90%);
@@ -140,11 +161,33 @@ button {
 }
 
 #Start {
-  display: inline;
-  height: inherit;
+  height: fit-content;
   padding-right: 45px;
   font-style: italic;
   font-size: 2.5em;
   color: white;
   z-index: 10;
+}
+
+.window {
+  background-color: beige;
+}
+
+.window *{
+  color: black;
+}
+
+.projectGrid {
+  color: black;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 10px;
+}
+
+.projectIcon {
+  min-width: fit-content;
+}
+
+.window * {
+  user-select: auto !important;
 }
