@@ -42,7 +42,7 @@ export default class NavBar extends Component {
             onClick={() => {
               this.setState({ visible: !this.state.visible });
             }}
-            className="StartB   utton"
+            className="StartButton"
             style={this.state.visible ? {filter: "brightness(90%)"} : {filter: "brightness(100%)"}}
           >
             <img id="StartLogo" src={StartLogo} alt="Windows Start Logo" />

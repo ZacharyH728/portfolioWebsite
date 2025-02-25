@@ -19,7 +19,6 @@ class App extends Component {
           <ProjectIcon title="Test Project 1"/>
           <ProjectIcon title="Test Project 2"/>
           <ProjectIcon title="Test Project 3"/>
-          <ProjectIcon title="Test Project 4"/>
         </div>
       </Window>
       {/* <Window title="About Me">

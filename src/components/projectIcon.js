@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import icon from "../icons/folder.png"
-import Window from "./window";
+
 
 const ProjectIcon = ({ title}) => {
   const [isVisible, setIsVisible] = useState(false);
+
+  const setVisible = () => {
+    setIsVisible(true);
+  }
 
   return (
     <div
@@ -14,20 +18,20 @@ const ProjectIcon = ({ title}) => {
         alignItems: "center",
         width: "fit-content",
       }}
-      // onClick={() => {setIsVisible(true)}}
+      onClick={setVisible}
       >
       <img id="taskIcon" src={icon}/>
       <div>
         {title}
       </div>
-      <Window title="File Explorer" width='fit-content'>
+      {/* <Window title="File Explorer" width='fit-content'>
         <div className='projectGrid'>
           <ProjectIcon title="Test Project 1"/>
           <ProjectIcon title="Test Project 2"/>
           <ProjectIcon title="Test Project 3"/>
           <ProjectIcon title="Test Project 4"/>
         </div>
-      </Window>
+      </Window> */}
     </div>
   );
   // return (
