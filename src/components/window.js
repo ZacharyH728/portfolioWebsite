@@ -15,6 +15,7 @@ const window = ({ title, children, width = "fit-content", height = "fit-content"
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
           position: "absolute",
           overflow: "hidden",
+          transform: "translate(100px,0)",
         }}
       >
         {/* Window Header (Draggable Area) */}
