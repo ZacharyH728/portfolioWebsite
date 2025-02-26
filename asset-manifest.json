@@ -1,18 +1,20 @@
 {
   "files": {
-    "main.css": "/portfolioWebsite/static/css/main.fe3b3a3a.css",
-    "main.js": "/portfolioWebsite/static/js/main.faf8826f.js",
+    "main.css": "/portfolioWebsite/static/css/main.fd08cd49.css",
+    "main.js": "/portfolioWebsite/static/js/main.77d9b34d.js",
     "static/js/787.1ed0c42c.chunk.js": "/portfolioWebsite/static/js/787.1ed0c42c.chunk.js",
     "static/media/background.jpg": "/portfolioWebsite/static/media/background.17ce657ab1362be245f5.jpg",
+    "static/media/profilePicture.jpg": "/portfolioWebsite/static/media/profilePicture.707bdc166622bf3bf7b0.jpg",
     "static/media/StartLogo.png": "/portfolioWebsite/static/media/StartLogo.1363674abc80f4260417.png",
+    "static/media/Font.png": "/portfolioWebsite/static/media/Font.e7a442df0f96b1b2ba09.png",
     "static/media/ResumeEngineering.pdf": "/portfolioWebsite/static/media/ResumeEngineering.e3e1791d6d878e7312fe.pdf",
     "index.html": "/portfolioWebsite/index.html",
-    "main.fe3b3a3a.css.map": "/portfolioWebsite/static/css/main.fe3b3a3a.css.map",
-    "main.faf8826f.js.map": "/portfolioWebsite/static/js/main.faf8826f.js.map",
+    "main.fd08cd49.css.map": "/portfolioWebsite/static/css/main.fd08cd49.css.map",
+    "main.77d9b34d.js.map": "/portfolioWebsite/static/js/main.77d9b34d.js.map",
     "787.1ed0c42c.chunk.js.map": "/portfolioWebsite/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fe3b3a3a.css",
-    "static/js/main.faf8826f.js"
+    "static/css/main.fd08cd49.css",
+    "static/js/main.77d9b34d.js"
   ]
 }
