@@ -1,10 +1,38 @@
-import React from "react";
+import React, {useEffect, useState, useRef} from "react";
 import Draggable from "react-draggable";
 
-const window = ({ title, children, width = "fit-content", height = "fit-content" }) => {
+const upperBound = .60
+const lowerBound = .30
+
+const Window = (
+  { title,
+    children,
+    width = "fit-content",
+    height = "fit-content",
+    initalX = (Math.random() * (upperBound - lowerBound) + lowerBound) * window.innerWidth,
+    initalY = (Math.random() * (upperBound - lowerBound) + lowerBound) * window.innerHeight
+  }) => {
+  const elementRef = useRef(null);
+  const [bounds, setBounds] = useState({ left: 0, top: 0, right: window.innerWidth, bottom: window.innerHeight });
+  useEffect(() => {
+    if (elementRef.current) {
+      setBounds({
+        left: 0,
+        top: 0,
+        right: window.innerWidth - elementRef.current.offsetWidth,
+        bottom: window.innerHeight - elementRef.current.offsetHeight-(.037*window.innerHeight)
+      });
+    }
+  }, []);
+
   return (
-    <Draggable handle=".window-header">
+    <Draggable
+    defaultPosition={{x: initalX, y: initalY}}
+    handle=".window-header"
+    bounds={bounds}
+    >
       <div
+        ref={elementRef}
         className="window"
         style={{
           width,
@@ -15,7 +43,8 @@ const window = ({ title, children, width = "fit-content", height = "fit-content"
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
           position: "absolute",
           overflow: "hidden",
-          transform: "translate(100px,0)",
+          // transform: "translate(100px,0)",
+          maxWidth: "40%",
         }}
       >
         {/* Window Header (Draggable Area) */}
@@ -44,4 +73,4 @@ const window = ({ title, children, width = "fit-content", height = "fit-content"
   );
 };
 
-export default window;
+export default Window;
