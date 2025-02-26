@@ -1,5 +1,5 @@
 * {
-  font-family: "Arial";
+  font-family: Arial;
   font-weight: bold;
   color: white;
   image-rendering: pixelated;
@@ -180,7 +180,13 @@ button {
 }
 
 .window {
-  background-color: beige;
+  background-color: #ffff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  overflow: hidden;
+  max-width: 50%;
 }
 
 .window *{
@@ -192,10 +198,14 @@ button {
   display: grid;
   grid-template-columns: repeat(4, auto);
   gap: 10px;
+  align-items: center;
+  justify-content: center;
 }
 
 .projectIcon {
   min-width: fit-content;
+  align-self: start;
+  justify-self: center;
 }
 
 .window * {
@@ -203,5 +213,16 @@ button {
 }
 
 .aboutMe {
-  max-width: 20vw;
+  width: 767px !important;
+}
+
+.aboutMe p {
+  margin: 5px 15px;
+}
+
+@media (min-width: 1700px) {
+  .window {
+    max-width: 25%;
+    font-size: 1.1em;
+  }
 }

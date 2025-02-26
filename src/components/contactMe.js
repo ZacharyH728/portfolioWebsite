@@ -10,7 +10,7 @@ const ContactMe = () => {
       <h2>Get in touch with me at:</h2>
       <div>
         <h3>Email: </h3>
-        <h3>zacharyh728@gmai.com</h3>
+        <h3>zacharyh728@gmail.com</h3>
       </div>
       <div>
         <h3>Phone: </h3>

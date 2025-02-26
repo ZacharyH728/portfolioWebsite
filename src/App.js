@@ -6,7 +6,6 @@ import Desktop from './components/desktop';
 import { Component } from 'react';
 import background from "./icons/background.jpg"
 import ContactMe from './components/contactMe';
-
 class App extends Component {
   render() {
     return (
