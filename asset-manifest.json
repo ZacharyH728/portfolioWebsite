@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/learningReact0/static/css/main.fe3b3a3a.css",
+    "main.js": "/learningReact0/static/js/main.3d67bf99.js",
+    "static/js/787.28cb0dcd.chunk.js": "/learningReact0/static/js/787.28cb0dcd.chunk.js",
+    "static/media/background.jpg": "/learningReact0/static/media/background.17ce657ab1362be245f5.jpg",
+    "static/media/StartLogo.png": "/learningReact0/static/media/StartLogo.1363674abc80f4260417.png",
+    "static/media/ResumeEngineering.pdf": "/learningReact0/static/media/ResumeEngineering.e3e1791d6d878e7312fe.pdf",
+    "index.html": "/learningReact0/index.html",
+    "main.fe3b3a3a.css.map": "/learningReact0/static/css/main.fe3b3a3a.css.map",
+    "main.3d67bf99.js.map": "/learningReact0/static/js/main.3d67bf99.js.map",
+    "787.28cb0dcd.chunk.js.map": "/learningReact0/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fe3b3a3a.css",
+    "static/js/main.3d67bf99.js"
+  ]
+}
