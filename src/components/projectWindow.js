@@ -15,7 +15,31 @@ const ProjectWindow = () => {
     {
       id: 2,
       isVisible: false,
-      title: "Test Project 2"
+      title: "Custom Lighting Console",
+      paragraph: "Custom lighting console that uses an arduino microcontroller to handle all sensor communication. Sensors includes: motorized and non-motorized linear potentiometers (faders), rotary encoders, and simple mx cherry keyboard buttons. Hosts a web server on a raspberry pi that can communicate with lights using the DMX-512 protocol. Can also act as a programmer wing for ETC consoles using the OSC communication protocol. All encased in a custom designed and 3D printed case modeled in Fusion360."
+    },
+    {
+      id: 3,
+      isVisible: false,
+      title: "16-Bit Calculator",
+      paragraph: "Created a calculator on a breadboard that only using basic logic gates. The logical gates were made with only 2N222 transistors. Created a simulation of the calculator in LTSpice."
+    },
+    {
+      id: 4,
+      isVisible: false,
+      title: "Digital Wrist Watch",
+      paragraph: "Custom watch with an LED display that displays the minute, hour, day, and month using binary. Runs off of a atmega328p microcontroller and uses a DS3231 RTC. Case designed in Fusion360."
+    },
+    {
+      id: 5,
+      isVisible: false,
+      title: "Personal Portfolio Webiste"
+    },
+    {
+      id: 6,
+      isVisible: false,
+      title: "Classroom Kernal",
+      paragraph: "AP CSP Project that is a online web interface to keep track of online classes. Can add classes with custom times and phone notification. Can also add video link to class and automatically join at class time."
     }
   ])
 
@@ -40,8 +64,10 @@ const ProjectWindow = () => {
         return (item.isVisible && 
         (<Window
           key={item.id}
+          id={item.id}
           title={item.title}
-          width="30%">
+          width="50vw"
+          setVisibility={setVisibility}> 
           <h1>{item.title}</h1>
           <p>{item.paragraph}</p>
           {item.skills ? <p>Skills: {item.skills.map((skill) => {return(<p style={{margin: "5px 0"}}>{skill}</p>)})} </p> : ""}

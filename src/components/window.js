@@ -4,9 +4,16 @@ import Draggable from "react-draggable";
 const upperBound = .60
 const lowerBound = .30
 
+let activeWindow = null;
+
+
 const Window = (
   { title,
     children,
+    id,
+    // key = Math.random() * (10000 - 1000) + 1000,
+    isVisible,
+    setVisibility,
     width = "fit-content",
     height = "fit-content",
     initalX = (Math.random() * (upperBound - lowerBound) + lowerBound) * window.innerWidth,
@@ -14,6 +21,7 @@ const Window = (
   }) => {
   const elementRef = useRef(null);
   const [bounds, setBounds] = useState({ left: 0, top: 0, right: window.innerWidth, bottom: window.innerHeight });
+  const [index, setIndex] = useState(1);
   useEffect(() => {
     if (elementRef.current) {
       setBounds({
@@ -24,12 +32,13 @@ const Window = (
       });
     }
   }, []);
-
+  console.log(activeWindow)
   return (
     <Draggable
     defaultPosition={{x: initalX, y: initalY}}
     handle=".window-header"
     bounds={bounds}
+    onMouseDown={() => {setIndex(index+1)}}
     >
       <div
         ref={elementRef}
@@ -45,6 +54,7 @@ const Window = (
           overflow: "hidden",
           // transform: "translate(100px,0)",
           maxWidth: "40%",
+          // zIndex: activeWindow ===  ? 100 : 10,
         }}
       >
         {/* Window Header (Draggable Area) */}
@@ -56,9 +66,14 @@ const Window = (
             padding: "10px",
             cursor: "move",
             fontWeight: "bold",
+            display: "flex",
+            justifyContent: "space-between",
+            alignContent: "center"
           }}
         >
           {title}
+          <button onClick={() => setVisibility(id)}
+            style={{color: "White", textAlign: "center"}}>x</button>
         </div>
 
         {/* Window Content */}
