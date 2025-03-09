@@ -1,3 +1,7 @@
+:root {
+  --taskbarHeight: 55px
+}
+
 * {
   font-family: Arial;
   font-weight: bold;
@@ -32,9 +36,8 @@ button {
   justify-content: space-between;
   background-image: linear-gradient(to bottom right, #296fe6, #3766b8);
   box-shadow: 1px 1px 5px 1px black;
-  height: 4vw;
-  max-height: 55px;
-  min-height: 55px;
+  height: var(--taskbarHeight);
+  z-index: 1000;
 }
 
 .StartMenu {
@@ -43,10 +46,11 @@ button {
   width: 30em;
   height: 30em;
   position: absolute;
-  bottom: 3.9vh;
+  bottom: calc(var(--taskbarHeight) + 1vh);
   margin-top: auto;
   border-radius: .5em;
   box-shadow: 1px 1px 5px 1px black, 1px 1px 4px 1px white inset;
+  z-index: 10000;
 }
 
 .UserGroup {
