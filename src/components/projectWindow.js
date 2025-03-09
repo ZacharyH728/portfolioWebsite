@@ -59,7 +59,7 @@ const ProjectWindow = () => {
         (<Window
           key={item.title}
           title={item.title}
-          width="50vw"
+          width="fit-content"
           setVisibility={setVisibility}
           z={50}> 
           <h1>{item.title}</h1>

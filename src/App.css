@@ -200,6 +200,7 @@ button {
   gap: 10px;
   align-items: center;
   justify-content: center;
+  text-wrap: balance;
 }
 
 .projectIcon {
@@ -210,19 +211,26 @@ button {
 
 .window * {
   user-select: auto !important;
+  max-height: 50vh;
 }
 
 .aboutMe {
-  width: 767px !important;
+  width: fit-content;
+  height: fit-content;
 }
-
 .aboutMe p {
   margin: 5px 15px;
 }
 
-@media (min-width: 1700px) {
+@media (width <= 1700px) {
   .window {
     max-width: 25%;
+    font-size: 1.1em;
+  }
+}
+@media (width > 1700px) {
+  .window {
+    max-width: 40%;
     font-size: 1.1em;
   }
 }

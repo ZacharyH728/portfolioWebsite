@@ -4,8 +4,8 @@ import Draggable from "react-draggable";
 import useActiveWindowStore from "./store";
 
 
-const upperBound = .60
-const lowerBound = .30
+const upperBound = .40
+const lowerBound = .01
 
 const Window = (
   { title,
@@ -17,11 +17,16 @@ const Window = (
     width = "fit-content",
     height = "fit-content",
     style,
-    initalX = (Math.random() * (upperBound - lowerBound) + lowerBound) * window.innerWidth,
-    initalY = (Math.random() * (upperBound - lowerBound) + lowerBound) * window.innerHeight
+    initalX = (Math.random() * (.5 - .1) + .1) * window.innerWidth,
+    initalY = (Math.random() * (upperBound - lowerBound) + lowerBound) * (window.innerHeight)
   }) => {
   const elementRef = useRef(null);
-  const [bounds, setBounds] = useState({ left: 0, top: 0, right: window.innerWidth, bottom: window.innerHeight });
+  const [bounds, setBounds] = useState({
+    left: 0,
+    top: 0,
+    right: window.innerWidth,
+    bottom: window.innerHeight
+  });
   const {activeWindow, setActiveWindow} = useActiveWindowStore();
 
   useEffect(() => {
@@ -29,8 +34,8 @@ const Window = (
       setBounds({
         left: 0,
         top: 0,
-        right: window.innerWidth - elementRef.current.offsetWidth,
-        bottom: window.innerHeight - elementRef.current.offsetHeight-(.037*window.innerHeight)
+        right: window.innerWidth - elementRef.current.offsetWidth - (.001 *window.innerWidth),
+        bottom: window.innerHeight - elementRef.current.offsetHeight-(.05 *window.innerHeight)
       });
     }
   }, []);
