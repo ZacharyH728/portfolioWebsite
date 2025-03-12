@@ -17,8 +17,8 @@ const Window = (
     width = "fit-content",
     height = "fit-content",
     style,
-    initalX = (Math.random() * (.5 - .1) + .1) * window.innerWidth,
-    initalY = (Math.random() * (upperBound - lowerBound) + lowerBound) * (window.innerHeight)
+    initialX = (Math.random() * (.5 - .1) + .1) * window.innerWidth,
+    initialY = (Math.random() * (upperBound - lowerBound) + lowerBound) * (window.innerHeight)
   }) => {
   const elementRef = useRef(null);
   const [bounds, setBounds] = useState({
@@ -41,7 +41,7 @@ const Window = (
   }, []);
   return (
     <Draggable
-    defaultPosition={{x: initalX, y: initalY}}
+    defaultPosition={{x: initialX, y: initialY}}
     handle=".window-header"
     bounds={bounds}
     onMouseDown={() => {setActiveWindow(title)}}

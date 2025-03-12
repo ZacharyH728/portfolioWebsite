@@ -7,14 +7,14 @@ const ProjectWindow = () => {
   const [items, setItems] = useState([
     {
       isVisible: false,
-      title: "Concrete Super-Capcitor",
-      paragraph: "Researched and created a functional super-capacitor using concrete mixed with carbon black as the main electrode. Designed and created a custom laser-cut housing made of acrylic. Soaked the concrete \"pucks\" in a potassium chloride solution as the supply for the ions, and used a insulated permeable carbon membrane as the seperator.",
+      title: "Concrete Super-Capacitor",
+      paragraph: "Researched and created a functional super-capacitor using concrete mixed with carbon black as the main electrode. Designed and created a custom laser-cut housing made of acrylic. Soaked the concrete \"pucks\" in a potassium chloride solution as the supply for the ions, and used a insulated permeable carbon membrane as the separator.",
       // skills: ["Fusion360", "Blender"]
     },
     {
       isVisible: false,
       title: "Custom Lighting Console",
-      paragraph: "Custom lighting console that uses an arduino microcontroller to handle all sensor communication. Sensors includes: motorized and non-motorized linear potentiometers (faders), rotary encoders, and simple mx cherry keyboard buttons. Hosts a web server on a raspberry pi that can communicate with lights using the DMX-512 protocol. Can also act as a programmer wing for ETC consoles using the OSC communication protocol. All encased in a custom designed and 3D printed case modeled in Fusion360."
+      paragraph: "Custom lighting console that uses an arduino microcontrolers to handle all sensor communication. Sensors includes: motorized and non-motorized linear potentiometers (faders), rotary encoders, and simple mx cherry keyboard buttons. Hosts a web server on a raspberry pi that can communicate with lights using the DMX-512 protocol. Can also act as a programmer wing for ETC consoles using the OSC communication protocol. All encased in a custom designed and 3D printed case modeled in Fusion360."
     },
     {
       isVisible: false,
@@ -24,15 +24,15 @@ const ProjectWindow = () => {
     {
       isVisible: false,
       title: "Digital Wrist Watch",
-      paragraph: "Custom watch with an LED display that displays the minute, hour, day, and month using binary. Runs off of a atmega328p microcontroller and uses a DS3231 RTC. Case designed in Fusion360."
+      paragraph: "Custom watch with an LED display that displays the minute, hour, day, and month using binary. Runs off of a atmega328p microcontrollers and uses a DS3231 RTC. Case designed in Fusion360."
     },
     {
       isVisible: false,
-      title: "Personal Portfolio Webiste"
+      title: "Personal Portfolio Website"
     },
     {
       isVisible: false,
-      title: "Classroom Kernal",
+      title: "Classroom Kernel",
       paragraph: "AP CSP Project that is a online web interface to keep track of online classes. Can add classes with custom times and phone notification. Can also add video link to class and automatically join at class time."
     }
   ])
