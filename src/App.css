@@ -202,6 +202,7 @@ button {
   display: grid;
   grid-template-columns: repeat(4, auto);
   gap: 10px;
+  row-gap: 15px;
   align-items: center;
   justify-content: center;
   text-wrap: balance;
