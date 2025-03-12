@@ -23,7 +23,7 @@ const AboutMe = () => {
         }}>
           <p>I am a current second-year student at Northeastern University, where I am currently attending to receiving a Bachelors of Science in Electrical and Computer Engineering, with a minor in Mathematics and Material Science.</p>
           <p>Ever since I was little I have had a strong passion for anything S.T.E.M. It started when I was just 9 years old making minecraft mods on my family computer, to the present where I am fortunate to work with FPGAs, microcontrolers and other low-level hardware.</p>
-          <p>Some of my favourite passions of mine are programming, CADing, 3D printing, and playing video games. When I'm not cooped up at my computer I'm outside hiking, biking or camping, all of which I discovered during my jouncy to Eagle Scout. </p>
+          <p>Some of my favourite passions of mine are programming, CADing, 3D printing, and playing video games. When I'm not cooped up at my computer I'm outside hiking, biking or camping, all of which I discovered during my journey to Eagle Scout. </p>
         </div>
       </div>
     </Window>
