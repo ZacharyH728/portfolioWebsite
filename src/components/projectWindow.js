@@ -28,7 +28,8 @@ const ProjectWindow = () => {
     },
     {
       isVisible: false,
-      title: "Personal Portfolio Website"
+      title: "Personal Portfolio Website",
+      paragraph: "A custom website designed and programmed to show others about who I am and my experience. This website was created using React, JS, HTML and CSS"
     },
     {
       isVisible: false,
@@ -61,7 +62,7 @@ const ProjectWindow = () => {
           title={item.title}
           width="fit-content"
           setVisibility={setVisibility}
-          z={50}> 
+          z={100}> 
           <h1>{item.title}</h1>
           <p>{item.paragraph}</p>
           {item.skills ? <p>Skills: {item.skills.map((skill) => {return(<p style={{margin: "5px 0"}}>{skill}</p>)})} </p> : ""}
