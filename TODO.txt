@@ -1,0 +1,8 @@
+fix scrollbar on firefox
+prevent moving windows behind task bar and increasing wbesite height (casuses the scrollbar issue)
+add research/physics stuff
+add substance to projects, like photos
+fix about me layout
+fix about me content
+update content in general
+add resume link

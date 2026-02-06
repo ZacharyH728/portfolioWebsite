@@ -5,7 +5,7 @@ import useActiveWindowStore from "./store";
 
 
 const upperBound = .40
-const lowerBound = .01
+const lowerBound = .02
 
 const Window = (
   { title,

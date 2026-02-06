@@ -35,6 +35,16 @@ const ProjectWindow = () => {
       isVisible: false,
       title: "Classroom Kernel",
       paragraph: "AP CSP Project that is a online web interface to keep track of online classes. Can add classes with custom times and phone notification. Can also add video link to class and automatically join at class time."
+    },
+    {
+      isVisible: false,
+      title: "FDTD Simulation of a Distributed Bragg Reflector",
+      paragraph: "Created a simulation of a distributed bragg reflector using Tidy3D, a FDTD simulation software. Wrote a custom python program that given different parameters of the DBR (number of layers, thickness of layers, refractive index of layers) will automatically run a simulation and output the reflectance spectrum. As well as tolerances of the thickness of layers to better reflect real world fabrication. Used this program to optimize the design of a DBR for a specific wavelength range."
+    },
+    {
+      isVisible: false,
+      title: "FDTD Simulation of a Grounded Co-Planar Superconducting Waveguide",
+      paragraph: "Created a simulation of a grounded co-planar superconducting waveguide using Tidy3D, a FDTD simulation software. Wrote a custom python program that given different parameters of the waveguide (width, height, thickness of superconducting layer, etc.) will automatically run a simulation and output the transmission spectrum. Also built a script that can generate a identical waveguide for use in Sonnet, a software used to design superconducting circuits. Used this program to compare the results of Tidy3D and Sonnet for various waveguides."
     }
   ])
 
