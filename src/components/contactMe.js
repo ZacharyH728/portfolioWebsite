@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import Window from "./window";
-import ProjectIcon from "./projectIcon";
 import useActiveWindowStore from "./store";
 
 const ContactMe = () => {

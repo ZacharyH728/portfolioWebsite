@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import Window from "./window";
-import ProjectIcon from "./projectIcon";
 import profilePicture from "../icons/profilePicture.jpg"
 import useActiveWindowStore from "./store";
 
@@ -30,7 +29,7 @@ const AboutMe = () => {
               flexDirection: "row"
             }
           }>
-          <img style={{maxWidth: "40%",padding: "0 10px 0 0"}} src={profilePicture}/>
+          <img style={{maxWidth: "40%",padding: "0 10px 0 0"}} alt="Profile" src={profilePicture}/>
           <div style={{
             display: "flex",
             flexDirection: "column",
