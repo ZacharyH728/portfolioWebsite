@@ -224,7 +224,7 @@ button {
   height: fit-content;
 }
 .aboutMe p {
-  margin: 5px 15px;
+  margin: 5px 0px;
 }
 
 @media (width <= 1700px) {

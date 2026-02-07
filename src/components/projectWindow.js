@@ -1,50 +1,58 @@
 import React, { useState } from "react";
 import Window from "./window";
 import ProjectIcon from "./projectIcon";
+import useActiveWindowStore from "./store";
 
 const ProjectWindow = () => {
-
+  const {projectsOpen, toggleProjects} = useActiveWindowStore();
   const [items, setItems] = useState([
     {
       isVisible: false,
       title: "Concrete Super-Capacitor",
       paragraph: "Researched and created a functional super-capacitor using concrete mixed with carbon black as the main electrode. Designed and created a custom laser-cut housing made of acrylic. Soaked the concrete \"pucks\" in a potassium chloride solution as the supply for the ions, and used a insulated permeable carbon membrane as the separator.",
-      // skills: ["Fusion360", "Blender"]
+      skills: ["Fusion360"]
     },
     {
       isVisible: false,
       title: "Custom Lighting Console",
-      paragraph: "Custom lighting console that uses an arduino microcontrolers to handle all sensor communication. Sensors includes: motorized and non-motorized linear potentiometers (faders), rotary encoders, and simple mx cherry keyboard buttons. Hosts a web server on a raspberry pi that can communicate with lights using the DMX-512 protocol. Can also act as a programmer wing for ETC consoles using the OSC communication protocol. All encased in a custom designed and 3D printed case modeled in Fusion360."
+      paragraph: "Custom lighting console that uses an arduino microcontrolers to handle all sensor communication. Sensors includes: motorized and non-motorized linear potentiometers (faders), rotary encoders, and simple mx cherry keyboard buttons. Hosts a web server on a raspberry pi that can communicate with lights using the DMX-512 protocol. Can also act as a programmer wing for ETC consoles using the OSC communication protocol. All encased in a custom designed and 3D printed case modeled in Fusion360.",
+      skills: ["Fusion360", "Soldering", "Arduino", "Javascript"]
     },
     {
       isVisible: false,
       title: "16-Bit Calculator",
-      paragraph: "Created a calculator on a breadboard that only using basic logic gates. The logical gates were made with only 2N222 transistors. Created a simulation of the calculator in LTSpice."
+      paragraph: "Created a calculator on a breadboard that only using basic logic gates. The logical gates were made with only 2N222 transistors. Created a simulation of the calculator in LTSpice.",
+      skills: ["LTSpice"]
     },
     {
       isVisible: false,
       title: "Digital Wrist Watch",
-      paragraph: "Custom watch with an LED display that displays the minute, hour, day, and month using binary. Runs off of a atmega328p microcontrollers and uses a DS3231 RTC. Case designed in Fusion360."
+      paragraph: "Custom watch with an LED display that displays the minute, hour, day, and month using binary. Runs off of a atmega328p microcontrollers and uses a DS3231 RTC. Case designed in Fusion360.",
+      skills: ["Fusion360", "micro-controller", "C", "Soldering"]
     },
     {
       isVisible: false,
       title: "Personal Portfolio Website",
-      paragraph: "A custom website designed and programmed to show others about who I am and my experience. This website was created using React, JS, HTML and CSS"
+      paragraph: "A custom website designed and programmed to show others about who I am and my experience. This website was created using React, JS, HTML and CSS",
+      skills: ["react", "javascript"]
     },
     {
       isVisible: false,
       title: "Classroom Kernel",
-      paragraph: "AP CSP Project that is a online web interface to keep track of online classes. Can add classes with custom times and phone notification. Can also add video link to class and automatically join at class time."
+      paragraph: "AP CSP Project that is a online web interface to keep track of online classes. Can add classes with custom times and phone notification. Can also add video link to class and automatically join at class time.",
+      skills: ["javascript", "html"]
     },
     {
       isVisible: false,
       title: "FDTD Simulation of a Distributed Bragg Reflector",
-      paragraph: "Created a simulation of a distributed bragg reflector using Tidy3D, a FDTD simulation software. Wrote a custom python program that given different parameters of the DBR (number of layers, thickness of layers, refractive index of layers) will automatically run a simulation and output the reflectance spectrum. As well as tolerances of the thickness of layers to better reflect real world fabrication. Used this program to optimize the design of a DBR for a specific wavelength range."
+      paragraph: "Created a simulation of a distributed bragg reflector using Tidy3D, a FDTD simulation software. Wrote a custom python program that given different parameters of the DBR (number of layers, thickness of layers, refractive index of layers) will automatically run a simulation and output the reflectance spectrum. As well as tolerances of the thickness of layers to better reflect real world fabrication. Used this program to optimize the design of a DBR for a specific wavelength range.",
+      skills: ["python"]
     },
     {
       isVisible: false,
       title: "FDTD Simulation of a Grounded Co-Planar Superconducting Waveguide",
-      paragraph: "Created a simulation of a grounded co-planar superconducting waveguide using Tidy3D, a FDTD simulation software. Wrote a custom python program that given different parameters of the waveguide (width, height, thickness of superconducting layer, etc.) will automatically run a simulation and output the transmission spectrum. Also built a script that can generate a identical waveguide for use in Sonnet, a software used to design superconducting circuits. Used this program to compare the results of Tidy3D and Sonnet for various waveguides."
+      paragraph: "Created a simulation of a grounded co-planar superconducting waveguide using Tidy3D, a FDTD simulation software. Wrote a custom python program that given different parameters of the waveguide (width, height, thickness of superconducting layer, etc.) will automatically run a simulation and output the transmission spectrum. Also built a script that can generate a identical waveguide for use in Sonnet, a software used to design superconducting circuits. Used this program to compare the results of Tidy3D and Sonnet for various waveguides.",
+      skills: ["python", "Sonnet"]
     }
   ])
 
@@ -54,7 +62,8 @@ const ProjectWindow = () => {
 
   return (
     <div>
-    <Window title="File Explorer / Projects" width='fit-content'>
+    {projectsOpen && (
+    <Window title="File Explorer / Projects" width='fit-content' setVisibility={toggleProjects}>
       <div className='projectGrid'>
       {items.map((item) => (
             <ProjectIcon 
@@ -65,6 +74,7 @@ const ProjectWindow = () => {
           ))}
       </div>
     </Window>
+    )}
       {items.map((item) => {
         return (item.isVisible && 
         (<Window

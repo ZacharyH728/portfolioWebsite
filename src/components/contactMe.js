@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import Window from "./window";
 import ProjectIcon from "./projectIcon";
+import useActiveWindowStore from "./store";
 
 const ContactMe = () => {
+  const {contactMeOpen, toggleContactMe} = useActiveWindowStore();
+
+  if (!contactMeOpen) return null;
 
   return (
     <div className="contactMe">
-    <Window title="Contact Me" width='fit-content' className="contactMe">
+    <Window title="Contact Me" width='fit-content' className="contactMe" setVisibility={toggleContactMe}>
       <h2>Get in touch with me at:</h2>
       <div>
         <h3>Email: </h3>

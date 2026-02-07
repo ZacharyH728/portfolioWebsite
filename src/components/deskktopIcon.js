@@ -2,11 +2,12 @@ import { Component, React } from "react";
 
 
 
-const DesktopIcon = ({ title, image, link}) => {
+const DesktopIcon = ({ title, image, link, onClick}) => {
     // const [isVisible, setIsVisible] = useState(false);
     return(
         
         <div  
+        onClick={onClick}
         style={{
             display: "flex",
             flexDirection: "column",
@@ -16,11 +17,19 @@ const DesktopIcon = ({ title, image, link}) => {
             height: "fit-content",
             padding: "20px",
             textAlign: "center",
+            cursor: "pointer"
         }}>
+        {link ? (
         <a href={link} style={{textDecoration: "none"}}>
             <img style={{height: "70px", width: "70px"}} alt="Folder Icon" src={image}/>
             <p style={{margin: "0px", fontSize: "1.01em",}}>{title}</p>
         </a>
+        ) : (
+        <div style={{textDecoration: "none"}}>
+            <img style={{height: "70px", width: "70px"}} alt="Folder Icon" src={image}/>
+            <p style={{margin: "0px", fontSize: "1.01em",}}>{title}</p>
+        </div>
+        )}
         </div>
     )}
 

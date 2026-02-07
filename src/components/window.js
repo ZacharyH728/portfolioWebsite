@@ -79,7 +79,11 @@ const Window = (
         {/* Window Content */}
         <div
           className="window-content"
-          style={{ padding: "20px", height: `calc(${height} - 50px)` }}
+          style={{
+            padding: "20px",
+            height: height === "fit-content" ? undefined : `calc(${height} - 100px)`,
+            overflowY: "auto"
+          }}
         >
           {children}
         </div>
