@@ -16,7 +16,7 @@ import footer3 from "../icons/footer3.png";
 const footerIcons = [footer1, footer2, footer3];
 
 const Taskbar = () => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
   const [date, setDate] = useState(new Date());
   
   const { toggleProjects, toggleAboutMe, toggleContactMe } = useActiveWindowStore();

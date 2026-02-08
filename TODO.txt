@@ -6,3 +6,5 @@ fix about me layout
 fix about me content
 update content in general
 add resume link
+
+change cursor when over X

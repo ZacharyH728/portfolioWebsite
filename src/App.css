@@ -44,7 +44,7 @@ button {
   left: .15em;
   background-image: radial-gradient(#7696cd,#1060c8);
   width: 30em;
-  height: 30em;
+  height: fit-content;
   position: absolute;
   bottom: calc(var(--taskbarHeight) + 1vh);
   margin-top: auto;

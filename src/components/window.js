@@ -132,7 +132,7 @@ const Window = (
         >
           {title}
           <button onClick={() => setVisibility(title)}
-            style={{color: "White", textAlign: "center"}}>x</button>
+            style={{color: "White", textAlign: "center", cursor: "pointer"}}>x</button>
         </div>
 
         {/* Window Content */}

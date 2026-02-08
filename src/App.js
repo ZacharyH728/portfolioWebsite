@@ -6,30 +6,20 @@ import Desktop from './components/desktop';
 import { Component } from 'react';
 import background from "./icons/background.jpg"
 import ContactMe from './components/contactMe';
+import Tutorial from './components/tutorial';
+
 class App extends Component {
   render() {
     return (
-      
       <div style={{ backgroundImage: `url(${background})`,
       width: '100vw',
       height: '100vh',
       backgroundSize: 'cover' }}>
         <Desktop/>
         <ProjectWindow/>
-        {/* <Window title="About Me">
-          <div className='ProjectGrid'>
-            <p>test</p>
-            <p>test2</p>
-          </div>
-        </Window>
-        <Window title="Contact Me">
-          <div className='ProjectGrid'>
-            <p>test</p>
-            <p>test2</p>
-          </div>
-        </Window> */}
         <AboutMe/>
         <ContactMe/>
+        <Tutorial/>
         <Taskbar/>
       </div>
     )

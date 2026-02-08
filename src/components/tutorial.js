@@ -1,13 +1,21 @@
-import { Component, React } from "react";
-import user from "../icons/user.png"
-export default class StartMenu extends Component {
-    render() {
-        return(
-            <div className="StartMenu">
-                <div className="UserGroup">
-                    <img id="UserProfilePicture" src={user} alt="user"/>
-                    <div id="UserName">Zachary Hill</div>
-                        <div style={{ padding: "0 10px" }}>
+import React from "react";
+import Window from "./window";
+import useActiveWindowStore from "./store";
+
+const Tutorial = () => {
+  const { tutorialOpen, toggleTutorial } = useActiveWindowStore();
+
+  return (
+    <>
+      {tutorialOpen && (
+        <Window 
+            title="Tutorial" 
+            width={400} 
+            setVisibility={toggleTutorial}
+            initialX={window.innerWidth / 2 - 200}
+            initialY={window.innerHeight / 2 - 200}
+        >
+          <div style={{ padding: "0 10px" }}>
             <h3>Welcome to my Portfolio!</h3>
             <p>Here is a quick guide on how to navigate this desktop environment:</p>
             
@@ -29,13 +37,14 @@ export default class StartMenu extends Component {
               </li>
             </ul>
             
-            <div style={{ marginTop: "20px", fontStyle: "italic", fontSize: "0.9em" }}>
-              <p>Click the Start button to close this menu.</p>
-              <p>Feel free to drag windows around and explore!</p>
-            </div>
+            <p style={{ marginTop: "20px", fontStyle: "italic", fontSize: "0.9em" }}>
+              Feel free to drag windows around and explore!
+            </p>
           </div>
-                    </div>
-                </div>
-        )
-    }
-}
+        </Window>
+      )}
+    </>
+  );
+};
+
+export default Tutorial;
