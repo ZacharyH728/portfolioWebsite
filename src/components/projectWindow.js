@@ -18,7 +18,7 @@ const ProjectWindow = () => {
     {
       isVisible: false,
       title: "Concrete Super-Capacitor",
-      paragraph: "Researched and created a functional super-capacitor using concrete, carbon-black mixture as the main electrode, as a final group project for an engineering course at Northeastern. We made four mixtures of the concrete-carbon black. [img3] Then using a custom designed enclousre, made in Fusion360 by me and laser cut in acrylic by me. [img4] The concrete \"pucks\" were then soaked in a potassium chloride solution as to supply the super-capcitor with ions, and used a insulated permemable carbon membrane as the separator. [img7]",
+      paragraph: "Researched and created a functional super-capacitor using concrete, carbon-black mixture as the main electrode, as a final group project for an engineering course at Northeastern. We made four mixtures of the concrete-carbon black. [img3:left] Then using a custom designed enclousre, made in Fusion360 by me and laser cut in acrylic by me. [img4:right] The concrete \"pucks\" were then soaked in a potassium chloride solution as to supply the super-capcitor with ions, and used a insulated permemable carbon membrane as the separator. [img7:left]",
       skills: ["Fusion360", "Laser Cutting"],
       images: {
         img1: smartConcreteCAD0,
@@ -82,34 +82,76 @@ const ProjectWindow = () => {
   const renderParagraphWithImages = (text, images) => {
     if (!images) return text;
     
-    // Split by tags in format [tagName]
+    // Split by tags in format [tagName] or [tagName:alignment]
     const parts = text.split(/(\[.*?\])/);
+    const result = [];
     
-    return parts.map((part, index) => {
-      // Check if the part is a tag
-      const match = part.match(/^\[(.*?)\]$/);
+    for (let i = 0; i < parts.length; i++) {
+      const part = parts[i];
+      const match = part.match(/^\[(.*?)(?::(left|right|center))?\]$/);
+      
       if (match) {
         const imgKey = match[1];
+        const alignment = match[2] || 'center'; // Default to center if not specified
+        
         if (images[imgKey]) {
-          return (
+          const imgElement = (
             <img 
-              key={index} 
+              key={`img-${i}`}
               src={images[imgKey]} 
               alt={imgKey} 
               onClick={() => setSelectedImage({src: images[imgKey], alt: imgKey})}
               style={{
-                maxWidth: '30%', 
+                maxWidth: alignment === 'center' ? '30%' : '30%', 
                 maxHeight: '10vh',
-                margin: '10px auto',
-                display: 'block',
+                margin: alignment === 'center' ? '10px auto' : (alignment === 'left' ? '0 15px 10px 0' : '0 0 10px 15px'),
+                display: alignment === 'center' ? 'block' : 'block',
+                float: alignment === 'center' ? 'none' : alignment,
                 cursor: 'pointer' 
               }} 
             />
           );
+
+          // If alignment is left or right, we need to inject the image BEFORE the preceding text block
+          // to make the text wrap around it.
+          // The preceding text block should be at result[result.length - 1] if it exists and is text.
+          
+          if (alignment === 'left' || alignment === 'right') {
+            const lastElement = result[result.length - 1];
+            
+            // If the last element is just a string, we can wrap it
+            if (typeof lastElement === 'string' && lastElement.trim().length > 0) {
+              // Remove the last text element
+              result.pop();
+              
+              // Push a container with image then text
+              result.push(
+                <div key={`container-${i}`} style={{overflow: 'hidden'}}>
+                  {imgElement}
+                  <span>{lastElement}</span>
+                </div>
+              );
+            } else {
+              // If no preceding text, just push the image
+               result.push(imgElement);
+            }
+          } else {
+            // Center alignment: Text is already pushed. 
+            // The user wanted text ABOVE the image for center alignment.
+            // Since we process text then image, the text is already in 'result'.
+            // We just push the image now.
+            result.push(imgElement);
+          }
+        }
+      } else {
+        // Just text
+        if (part.trim() !== '') {
+           result.push(part);
         }
       }
-      return part;
-    });
+    }
+    
+    return result;
   };
 
   return (
