@@ -18,8 +18,8 @@ const ProjectWindow = () => {
     {
       isVisible: false,
       title: "Concrete Super-Capacitor",
-      paragraph: "Researched and created a functional super-capacitor using concrete, carbon-black mixture as the main electrode, as a final group project for an engineering course at Northeastern. We made four mixtures of the concrete-carbon black. [img3:left] Then using a custom designed enclousre, made in Fusion360 by me and laser cut in acrylic by me. [img4:right] The concrete \"pucks\" were then soaked in a potassium chloride solution as to supply the super-capcitor with ions, and used a insulated permemable carbon membrane as the separator. [img7:left]",
-      skills: ["Fusion360", "Laser Cutting"],
+      paragraph: "For our group final project for our general engineering course GE1502 at Northeastern University, we researched and tested Concrete Super-Capacitors as a proof of concept for large scale concrete power storage. Over the course of three months, we researched into different techniques, materials and recipes. Through our research we found the easiest and most performant recipe was using carbon black to add electrical conductivity to the concrete, and a potassium chloride solution to provide the ions, enabling chemical charge storage. [clear] [br] We decided to test four different mixtures, allowing us to see how the carbon black affected the structural integrity of the concrete. As it would impact the use cases. We made 1%, 3%, 5%, and 7% ratio by volume mixtures. [img3:left] Then using a custom designed enclosure, made in Fusion360 by me and laser cut in acrylic by me. [img4:center] The super-capacitors were assembled with a semi-permeable carbon membrane in between the pucks as it would allow for the ions to transfer without conducting between, creating a voltage differential. The entire enclosures were then soaked in a potassium chloride solution as to supply the super-capacitor with ions. [img7:center] [clear] [br] I then tested and measured the capacitance of the super-capacitor where we only measured 1µf.[br] Throughout the manufacturing and testing process we came across some flaws and issues. The first of was the making of the concrete pucks. We used a 3D printed mould designed and printed by me. However the lid I designed had an outer lip, limiting the pressure that could be applied to the pucks. This caused the pucks thickness to vary and be rough. This limiting the surface area between each pucks and the membrane, limiting the conductivity and capacitance. The concrete we purchased also had fairly large pieces of aggregate, that at our size affected the integrity of the pucks and smoothness. The aggregate issues can be seen below.[img5:center] We also conclude that the carbon-black in large ratios compromised the concrete too much causing it to easily crumble. The image to the right is a puck that we created that was nearly 10% and you could break it with your hand. [img8:right:20]",
+      skills: ["Fusion360", "Laser Cutting", "Teamwork", "Project Management", "Research", "EE Lab"],
       images: {
         img1: smartConcreteCAD0,
         img2: smartConcreteCAD1,
@@ -88,12 +88,24 @@ const ProjectWindow = () => {
     
     for (let i = 0; i < parts.length; i++) {
       const part = parts[i];
-      const match = part.match(/^\[(.*?)(?::(left|right|center))?\]$/);
+      
+      // Check for special tags first
+      if (part === '[br]') {
+        result.push(<br key={`br-${i}`} />);
+        continue;
+      }
+      if (part === '[clear]') {
+        result.push(<div key={`clear-${i}`} style={{clear: 'both', width: '100%'}} />);
+        continue;
+      }
+
+      const match = part.match(/^\[(.*?)(?::(left|right|center)(?::(\d+))?)?\]$/);
       
       if (match) {
         const imgKey = match[1];
         const alignment = match[2] || 'center'; // Default to center if not specified
-        
+        const width = match[3]; // Optional width percentage
+
         if (images[imgKey]) {
           const imgElement = (
             <img 
@@ -102,8 +114,8 @@ const ProjectWindow = () => {
               alt={imgKey} 
               onClick={() => setSelectedImage({src: images[imgKey], alt: imgKey})}
               style={{
-                maxWidth: alignment === 'center' ? '30%' : '30%', 
-                maxHeight: '10vh',
+                maxWidth: width ? `${width}%` : (alignment === 'center' ? '100%' : '30%'), 
+                maxHeight: (width || alignment === 'center') ? 'auto' : '10vh',
                 margin: alignment === 'center' ? '10px auto' : (alignment === 'left' ? '0 15px 10px 0' : '0 0 10px 15px'),
                 display: alignment === 'center' ? 'block' : 'block',
                 float: alignment === 'center' ? 'none' : alignment,
@@ -190,10 +202,9 @@ const ProjectWindow = () => {
           key={item.title}
           title={item.title}
           width="fit-content"
-          setVisibility={setVisibility}
-          z={100}> 
+          setVisibility={setVisibility}> 
           <h1 style={{margin: "5px 0 0 0"}}>{item.title}</h1>
-          {item.skills ? <p style={{margin: "0", display: "flex", flexDirection: "row", alignItems: "center"}}>Skills: {item.skills.map((skill) => {return(<p style={{margin: "5px 0"}}>{skill}</p>)})} </p> : ""}
+          {item.skills ? <div style={{margin: "7px 0", display: "flex", flexDirection: "row", alignItems: "center", flexWrap: "wrap"}}>Skills: {item.skills.map((skill) => {return(<p style={{margin: "0 5px"}}>{skill}</p>)})} </div> : ""}
           <p>{renderParagraphWithImages(item.paragraph, item.images)}</p>
         </Window>))  
       })}

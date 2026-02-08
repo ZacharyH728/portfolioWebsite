@@ -16,6 +16,7 @@ const Window = (
     setVisibility,
     width = "fit-content",
     height = "fit-content",
+    minWidth,
     style,
     initialX = (Math.random() * (.2 - .05) + .05) * window.innerWidth,
     initialY = (Math.random() * (upperBound - lowerBound) + lowerBound) * (window.innerHeight)
@@ -28,8 +29,15 @@ const Window = (
     bottom: window.innerHeight
   });
   const {activeWindow, setActiveWindow} = useActiveWindowStore();
-  const [size, setSize] = useState({ width, height });
+  const [size, setSize] = useState({ 
+    width: typeof width === 'number' && !minWidth ? Math.min(width, window.innerWidth * 0.3) : width, 
+    height 
+  });
   const isResizing = useRef(false);
+
+  useEffect(() => {
+    setActiveWindow(title);
+  }, []);
 
   // Update bounds when window size changes to ensure draggable area is correct
   useEffect(() => {
@@ -98,8 +106,12 @@ const Window = (
         style={{
           width: size.width,
           height: size.height,
+          maxHeight: size.height === "fit-content" ? "50vh" : undefined,
+          maxWidth: typeof size.width === 'string' && !minWidth ? '30vw' : undefined,
           zIndex: z ? z : activeWindow === title ? 100 : 10,
           position: "absolute", // Ensure absolute positioning for resizing logic
+          display: "flex",
+          flexDirection: "column",
         }}
       >
         
@@ -127,7 +139,7 @@ const Window = (
           className="window-content"
           style={{
             padding: "20px",
-            height: size.height === "fit-content" ? undefined : `calc(${size.height}px - 60px)`, // Adjusted calculation
+            height: size.height === "fit-content" ? "100%" : `calc(${size.height}px - 60px)`, // Adjusted calculation
             overflowY: "auto"
           }}
         >

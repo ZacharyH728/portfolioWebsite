@@ -9,7 +9,7 @@ const AboutMe = () => {
   if (!aboutMeOpen) return null;
 
   return (
-    <Window title="About Me" width='min(70%, 800px)' height="fit-content" className="aboutMe" setVisibility={toggleAboutMe}>
+    <Window title="About Me" width='min(70%, 800px)' minWidth="300px" height="fit-content" className="aboutMe" setVisibility={toggleAboutMe}>
       <div style={{
         display: "flex",
         flexDirection: "row",
@@ -29,7 +29,7 @@ const AboutMe = () => {
               flexDirection: "row"
             }
           }>
-          <img style={{maxWidth: "40%",padding: "0 10px 0 0"}} alt="Profile" src={profilePicture}/>
+          <img style={{maxWidth: "40%",padding: "0 10px 0 0", objectFit: "contain", height: "auto"}} alt="Profile" src={profilePicture}/>
           <div style={{
             display: "flex",
             flexDirection: "column",
