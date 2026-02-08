@@ -37,6 +37,7 @@ const Window = (
 
   useEffect(() => {
     setActiveWindow(title);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Update bounds when window size changes to ensure draggable area is correct
