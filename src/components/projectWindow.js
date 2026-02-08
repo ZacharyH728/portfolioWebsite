@@ -90,7 +90,7 @@ const ProjectWindow = () => {
     {
       isVisible: false,
       title: "UV Laser Distribution System",
-      paragraph: "Designed and aligned a multi-stage frequency conversion setup that used a fourth harmonic generation setup to create a 15mW UV laser beam from a 2.5W infrared laser. Then designed and built a conduit system that would redirect the laser beam between labs for use in Time Resolved Transmission Electron Microscopy (TR-TEM).",
+      paragraph: "Designed and aligned a multi-stage fourth harmonic generation setup to create a 15mW UV laser beam from a 2.5W infrared laser. Then designed and built a conduit system that would redirect the laser beam between labs for use in Time Resolved Transmission Electron Microscopy (TR-TEM).",
       skills: ["Solidworks", "3D-Printing", "Non-linear Optics", "Optical Alignment & Beam Steering", "Laser Safety"]
     }
   ])
