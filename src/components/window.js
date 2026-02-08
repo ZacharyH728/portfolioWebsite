@@ -4,7 +4,7 @@ import Draggable from "react-draggable";
 import useActiveWindowStore from "./store";
 
 
-const upperBound = .40
+const upperBound = .20
 const lowerBound = .02
 
 const Window = (
@@ -17,7 +17,7 @@ const Window = (
     width = "fit-content",
     height = "fit-content",
     style,
-    initialX = (Math.random() * (.5 - .1) + .1) * window.innerWidth,
+    initialX = (Math.random() * (.2 - .05) + .05) * window.innerWidth,
     initialY = (Math.random() * (upperBound - lowerBound) + lowerBound) * (window.innerHeight)
   }) => {
   const elementRef = useRef(null);
@@ -28,17 +28,62 @@ const Window = (
     bottom: window.innerHeight
   });
   const {activeWindow, setActiveWindow} = useActiveWindowStore();
+  const [size, setSize] = useState({ width, height });
+  const isResizing = useRef(false);
 
+  // Update bounds when window size changes to ensure draggable area is correct
   useEffect(() => {
-    if (elementRef.current) {
-      setBounds({
-        left: 0,
-        top: 0,
-        right: window.innerWidth - elementRef.current.offsetWidth - (.001 *window.innerWidth),
-        bottom: window.innerHeight - elementRef.current.offsetHeight-(.05 *window.innerHeight)
-      });
-    }
-  }, []);
+    // Initial bounds calculation
+    const updateBounds = () => {
+      if (elementRef.current) {
+        const { width, height } = elementRef.current.getBoundingClientRect();
+        setBounds({
+          left: 0,
+          top: 0,
+          right: window.innerWidth - width,
+          bottom: window.innerHeight - 55 - height
+        });
+      }
+    };
+    
+    updateBounds();
+    window.addEventListener('resize', updateBounds);
+    return () => window.removeEventListener('resize', updateBounds);
+  }, [size, children]); // Only run on mount and window resize
+
+  const handleMouseDown = (e) => {
+    e.stopPropagation();
+    isResizing.current = true;
+    
+    // Define the listeners
+    const handleMouseMove = (e) => {
+      if (!isResizing.current) return;
+      if (elementRef.current) {
+        const rect = elementRef.current.getBoundingClientRect();
+        const newWidth = e.clientX - rect.left;
+        const newHeight = e.clientY - rect.top;
+        
+        // No maximum size constraint here, just minimums
+        setSize({
+          width: Math.max(newWidth, 200), // Minimum width
+          height: Math.max(newHeight, 150) // Minimum height
+        });
+      }
+    };
+
+    const handleMouseUp = () => {
+      isResizing.current = false;
+      document.body.style.userSelect = "auto";
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+    };
+
+    // Store them so we can't lose reference (though here we remove them inside handleMouseUp which is fine)
+    document.body.style.userSelect = "none";
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
+  };
+  
   return (
     <Draggable
     defaultPosition={{x: initialX, y: initialY}}
@@ -51,9 +96,10 @@ const Window = (
         className={`window ${className}`}
         stye={style}
         style={{
-          width,
-          height,
+          width: size.width,
+          height: size.height,
           zIndex: z ? z : activeWindow === title ? 100 : 10,
+          position: "absolute", // Ensure absolute positioning for resizing logic
         }}
       >
         
@@ -81,12 +127,27 @@ const Window = (
           className="window-content"
           style={{
             padding: "20px",
-            height: height === "fit-content" ? undefined : `calc(${height} - 100px)`,
+            height: size.height === "fit-content" ? undefined : `calc(${size.height}px - 60px)`, // Adjusted calculation
             overflowY: "auto"
           }}
         >
           {children}
         </div>
+
+        {/* Resize Handle */}
+        <div
+          onMouseDown={handleMouseDown}
+          style={{
+            width: "15px",
+            height: "15px",
+            background: "linear-gradient(135deg, transparent 50%, #666 50%)", // Triangular grip look
+            position: "absolute",
+            bottom: "0",
+            right: "0",
+            cursor: "nwse-resize",
+            zIndex: 10
+          }}
+        />
       </div>
     </Draggable>
   );

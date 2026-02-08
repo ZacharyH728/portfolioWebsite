@@ -9,11 +9,11 @@ const AboutMe = () => {
   if (!aboutMeOpen) return null;
 
   return (
-    <Window title="About Me" width='70%' height="fit-content" className="aboutMe" setVisibility={toggleAboutMe}>
+    <Window title="About Me" width='min(70%, 800px)' height="fit-content" className="aboutMe" setVisibility={toggleAboutMe}>
       <div style={{
         display: "flex",
         flexDirection: "row",
-        alignItems: "center",
+        alignItems: "flex-start",
         gap: "10px",
         maxHeight: "90%"
       }}>

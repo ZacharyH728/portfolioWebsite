@@ -2,15 +2,34 @@ import React, { useState } from "react";
 import Window from "./window";
 import ProjectIcon from "./projectIcon";
 import useActiveWindowStore from "./store";
+import smartConcreteCAD0 from "../icons/smartConcrete/Smart_Concrete_CAD0.png";
+import smartConcreteCAD1 from "../icons/smartConcrete/Smart_Concrete_CAD1.jpg";
+import smartConcreteIMG2 from "../icons/smartConcrete/Smart_Concrete_IMG2.png";
+import smartConcreteIMG3 from "../icons/smartConcrete/Smart_Concrete_IMG3.jpg";
+import smartConcreteIMG4 from "../icons/smartConcrete/Smart_Concrete_IMG4.png";
+import smartConcreteIMG5 from "../icons/smartConcrete/Smart_Concrete_IMG5.jpg";
+import smartConcreteIMG6 from "../icons/smartConcrete/Smart_Concrete_IMG6.jpg";
+import smartConcreteIMG7 from "../icons/smartConcrete/Smart_Concrete_IMG7.jpg";
 
 const ProjectWindow = () => {
   const {projectsOpen, toggleProjects} = useActiveWindowStore();
+  const [selectedImage, setSelectedImage] = useState(null);
   const [items, setItems] = useState([
     {
       isVisible: false,
       title: "Concrete Super-Capacitor",
-      paragraph: "Researched and created a functional super-capacitor using concrete mixed with carbon black as the main electrode. Designed and created a custom laser-cut housing made of acrylic. Soaked the concrete \"pucks\" in a potassium chloride solution as the supply for the ions, and used a insulated permeable carbon membrane as the separator.",
-      skills: ["Fusion360"]
+      paragraph: "Researched and created a functional super-capacitor using concrete, carbon-black mixture as the main electrode, as a final group project for an engineering course at Northeastern. We made four mixtures of the concrete-carbon black. [img3] Then using a custom designed enclousre, made in Fusion360 by me and laser cut in acrylic by me. [img4] The concrete \"pucks\" were then soaked in a potassium chloride solution as to supply the super-capcitor with ions, and used a insulated permemable carbon membrane as the separator. [img7]",
+      skills: ["Fusion360", "Laser Cutting"],
+      images: {
+        img1: smartConcreteCAD0,
+        img2: smartConcreteCAD1,
+        img3: smartConcreteIMG2,
+        img4: smartConcreteIMG3,
+        img5: smartConcreteIMG4,
+        img6: smartConcreteIMG5,
+        img7: smartConcreteIMG6,
+        img8: smartConcreteIMG7,
+      }
     },
     {
       isVisible: false,
@@ -60,10 +79,43 @@ const ProjectWindow = () => {
     setItems((prevItems) => prevItems.map((item) => item.title === title ? {...item, isVisible: !item.isVisible} : item))
   }
 
+  const renderParagraphWithImages = (text, images) => {
+    if (!images) return text;
+    
+    // Split by tags in format [tagName]
+    const parts = text.split(/(\[.*?\])/);
+    
+    return parts.map((part, index) => {
+      // Check if the part is a tag
+      const match = part.match(/^\[(.*?)\]$/);
+      if (match) {
+        const imgKey = match[1];
+        if (images[imgKey]) {
+          return (
+            <img 
+              key={index} 
+              src={images[imgKey]} 
+              alt={imgKey} 
+              onClick={() => setSelectedImage({src: images[imgKey], alt: imgKey})}
+              style={{
+                maxWidth: '30%', 
+                maxHeight: '10vh',
+                margin: '10px auto',
+                display: 'block',
+                cursor: 'pointer' 
+              }} 
+            />
+          );
+        }
+      }
+      return part;
+    });
+  };
+
   return (
     <div>
     {projectsOpen && (
-    <Window title="File Explorer / Projects" width='fit-content' setVisibility={toggleProjects}>
+    <Window title="File Explorer / Projects" width={600} setVisibility={toggleProjects}>
       <div className='projectGrid'>
       {items.map((item) => (
             <ProjectIcon 
@@ -75,6 +127,21 @@ const ProjectWindow = () => {
       </div>
     </Window>
     )}
+      {selectedImage && (
+        <Window 
+          title={selectedImage.alt || "Image Viewer"} 
+          setVisibility={() => setSelectedImage(null)}
+          width="auto"
+          height="auto"
+          z={200}
+        >
+          <img 
+            src={selectedImage.src} 
+            alt={selectedImage.alt} 
+            style={{width: '100%', height: '100%', objectFit: 'contain'}} 
+          />
+        </Window>
+      )}
       {items.map((item) => {
         return (item.isVisible && 
         (<Window
@@ -83,9 +150,9 @@ const ProjectWindow = () => {
           width="fit-content"
           setVisibility={setVisibility}
           z={100}> 
-          <h1>{item.title}</h1>
-          <p>{item.paragraph}</p>
-          {item.skills ? <p>Skills: {item.skills.map((skill) => {return(<p style={{margin: "5px 0"}}>{skill}</p>)})} </p> : ""}
+          <h1 style={{margin: "5px 0 0 0"}}>{item.title}</h1>
+          {item.skills ? <p style={{margin: "0", display: "flex", flexDirection: "row", alignItems: "center"}}>Skills: {item.skills.map((skill) => {return(<p style={{margin: "5px 0"}}>{skill}</p>)})} </p> : ""}
+          <p>{renderParagraphWithImages(item.paragraph, item.images)}</p>
         </Window>))  
       })}
     </div>

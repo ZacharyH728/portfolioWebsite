@@ -190,7 +190,7 @@ button {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   position: absolute;
   overflow: hidden;
-  max-width: 50%;
+  /* max-width: 50%; */
 }
 
 .window *{
@@ -200,7 +200,7 @@ button {
 .projectGrid {
   color: black;
   display: grid;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 10px;
   row-gap: 15px;
   align-items: center;
@@ -216,7 +216,7 @@ button {
 
 .window * {
   user-select: auto !important;
-  max-height: 50vh;
+  /* max-height: 50vh; */
 }
 
 .aboutMe {
@@ -229,13 +229,13 @@ button {
 
 @media (width <= 1700px) {
   .window {
-    max-width: 25%;
+    /* max-width: 25%; */
     font-size: 1.1em;
   }
 }
 @media (width > 1700px) {
   .window {
-    max-width: 40%;
+    /* max-width: 40%; */
     font-size: 1.1em;
   }
 }
