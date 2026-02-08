@@ -200,18 +200,45 @@ button {
 .projectGrid {
   color: black;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
   row-gap: 15px;
-  align-items: center;
+  align-items: start;
   justify-content: center;
-  text-wrap: balance;
 }
 
 .projectIcon {
-  min-width: fit-content;
-  align-self: start;
-  justify-self: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  text-align: left;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0,0,0,0.1);
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.projectIcon:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.projectIcon img {
+  width: 48px;
+  height: 48px;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.projectIcon div {
+  font-size: 0.95em;
+  line-height: 1.3;
 }
 
 .window * {

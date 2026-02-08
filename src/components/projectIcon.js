@@ -8,14 +8,6 @@ const ProjectIcon = ({ title, onClick}) => {
   return (
     <div
       className="projectIcon"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        width: "fit-content",
-        maxWidth: "8vw",
-        textAlign: "center",
-      }}
       onClick={onClick}
       >
       <img id="taskIcon" alt="Folder Icon" src={icon}/>
