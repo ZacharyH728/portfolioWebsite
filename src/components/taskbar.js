@@ -21,9 +21,9 @@ const Taskbar = () => {
   
   const { toggleProjects, toggleAboutMe, toggleContactMe } = useActiveWindowStore();
   
-  const tasks = ["Projects", "About Me", "Contact Me"];
-  const icons = [Projects, AboutMe, ContactMe];
-  const handlers = [toggleProjects, toggleAboutMe, toggleContactMe];
+  const tasks = ["About Me", "Projects", "Contact Me"];
+  const icons = [AboutMe, Projects, ContactMe];
+  const handlers = [toggleAboutMe, toggleProjects, toggleContactMe];
 
   useEffect(() => {
     const interval = setInterval(() => {

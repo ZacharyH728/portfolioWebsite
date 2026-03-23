@@ -14,7 +14,8 @@ class App extends Component {
       <div style={{ backgroundImage: `url(${background})`,
       width: '100vw',
       height: '100vh',
-      backgroundSize: 'cover' }}>
+      backgroundSize: 'cover',
+      overflow: 'hidden' }}>
         <Desktop/>
         <ProjectWindow/>
         <AboutMe/>

@@ -22,6 +22,8 @@ const Window = (
     initialY = (Math.random() * (upperBound - lowerBound) + lowerBound) * (window.innerHeight)
   }) => {
   const elementRef = useRef(null);
+  const stableInitialX = useRef(initialX);
+  const stableInitialY = useRef(initialY);
   const [bounds, setBounds] = useState({
     left: 0,
     top: 0,
@@ -29,9 +31,9 @@ const Window = (
     bottom: window.innerHeight
   });
   const {activeWindow, setActiveWindow} = useActiveWindowStore();
-  const [size, setSize] = useState({ 
-    width: typeof width === 'number' && !minWidth ? Math.min(width, window.innerWidth * 0.3) : width, 
-    height 
+  const [size, setSize] = useState({
+    width: typeof width === 'number' && !minWidth ? Math.min(width, window.innerWidth * 0.3) : width,
+    height
   });
   const isResizing = useRef(false);
 
@@ -69,13 +71,13 @@ const Window = (
       if (!isResizing.current) return;
       if (elementRef.current) {
         const rect = elementRef.current.getBoundingClientRect();
-        const newWidth = e.clientX - rect.left;
-        const newHeight = e.clientY - rect.top;
-        
-        // No maximum size constraint here, just minimums
+        const clampedX = Math.min(e.clientX, window.innerWidth);
+        const clampedY = Math.min(e.clientY, window.innerHeight - 55);
+        const newWidth = clampedX - rect.left;
+        const newHeight = clampedY - rect.top;
         setSize({
-          width: Math.max(newWidth, 200), // Minimum width
-          height: Math.max(newHeight, 150) // Minimum height
+          width: Math.max(newWidth, 200),
+          height: Math.max(newHeight, 150)
         });
       }
     };
@@ -95,7 +97,7 @@ const Window = (
   
   return (
     <Draggable
-    defaultPosition={{x: initialX, y: initialY}}
+    defaultPosition={{x: stableInitialX.current, y: stableInitialY.current}}
     handle=".window-header"
     bounds={bounds}
     onMouseDown={() => {setActiveWindow(title)}}
@@ -106,11 +108,12 @@ const Window = (
         stye={style}
         style={{
           width: size.width,
-          height: size.height,
-          maxHeight: size.height === "fit-content" ? "50vh" : undefined,
+          ...(size.height === "fit-content"
+            ? { maxHeight: `${window.innerHeight - 55 - stableInitialY.current}px` }
+            : { height: size.height }),
           maxWidth: typeof size.width === 'string' && !minWidth ? '30vw' : undefined,
           zIndex: z ? z : activeWindow === title ? 100 : 10,
-          position: "absolute", // Ensure absolute positioning for resizing logic
+          position: "absolute",
           display: "flex",
           flexDirection: "column",
         }}
@@ -140,8 +143,10 @@ const Window = (
           className="window-content"
           style={{
             padding: "20px",
-            height: size.height === "fit-content" ? "100%" : `calc(${size.height}px - 60px)`, // Adjusted calculation
-            overflowY: "auto"
+            flex: 1,
+            minHeight: 0,
+            overflowY: "auto",
+            boxSizing: "border-box",
           }}
         >
           {children}

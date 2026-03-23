@@ -25,8 +25,25 @@ const ProjectWindow = () => {
     {
       isVisible: false,
       title: "Concrete Super-Capacitor",
-      paragraph: "For our group final project for our general engineering course GE1502 at Northeastern University, we researched and tested Concrete Super-Capacitors as a proof of concept for large scale concrete power storage. Over the course of three months, we researched into different techniques, materials and recipes. Through our research we found the easiest and most performant recipe was using carbon black to add electrical conductivity to the concrete, and a potassium chloride solution to provide the ions, enabling chemical charge storage. [clear] [br] We decided to test four different mixtures, allowing us to see how the carbon black affected the structural integrity of the concrete. As it would impact the use cases. We made 1%, 3%, 5%, and 7% ratio by volume mixtures. [img3:center] Then using a custom designed enclosure, made in Fusion360 by me and laser cut in acrylic by me. [img4:center] The super-capacitors were assembled with a semi-permeable carbon membrane in between the pucks as it would allow for the ions to transfer without conducting between, creating a voltage differential. The entire enclosures were then soaked in a potassium chloride solution as to supply the super-capacitor with ions. [img7:center] [clear] [br] I then tested and measured the capacitance of the super-capacitor where we only measured 1µf.[br] Throughout the manufacturing and testing process we came across some flaws and issues. The first of was the making of the concrete pucks. We used a 3D printed mould designed and printed by me. However the lid I designed had an outer lip, limiting the pressure that could be applied to the pucks. This caused the pucks thickness to vary and be rough. This limiting the surface area between each pucks and the membrane, limiting the conductivity and capacitance. The concrete we purchased also had fairly large pieces of aggregate, that at our size affected the integrity of the pucks and smoothness. The aggregate issues can be seen below.[img5:center] We also conclude that the carbon-black in large ratios compromised the concrete too much causing it to easily crumble. The image to the right is a puck that we created that was nearly 10% and you could break it with your hand. [img8:right:20]",
-      skills: ["Fusion360", "Laser Cutting", "Teamwork", "Project Management", "Research", "EE Lab"],
+      sections: [
+        {
+          title: "Overview",
+          content: "Group final project for GE1502 (General Engineering) at Northeastern University. Our team researched and tested Concrete Super-Capacitors as a proof of concept for large-scale concrete energy storage. Over three months, we investigated different techniques, materials, and recipes, ultimately determining that carbon black (for electrical conductivity) combined with a potassium chloride solution (for ion supply) produced the best results."
+        },
+        {
+          title: "My Contributions",
+          content: "I designed and laser cut the custom acrylic enclosure in Fusion360 that housed the super-capacitor assembly. [img4:center] I also designed and 3D printed the concrete mold used to form the pucks. Additionally, I led the testing and measurement phase, personally measuring the capacitance of each assembled super-capacitor."
+        },
+        {
+          title: "Team Approach",
+          content: "The team decided to test four different carbon black ratios by volume — 1%, 3%, 5%, and 7% — to evaluate how concentration affected both electrical performance and structural integrity. The concrete pucks were assembled with a semi-permeable carbon membrane between them to allow ion transfer without direct conduction, and the entire assembly was soaked in potassium chloride solution. [img3:center] [img7:center]"
+        },
+        {
+          title: "Results & Findings",
+          content: "Testing measured a capacitance of only 1µF. Several manufacturing issues limited performance: the mold lid design constrained the pressure applied during curing, causing uneven puck thickness and reduced membrane contact area. The concrete aggregate was also too coarse for the puck size, affecting surface quality and structural integrity. [img5:center] At higher carbon black ratios (near 10%), the pucks became structurally compromised and could be broken by hand. [img8:right:20] These findings suggest that finer aggregate, a revised mold design, and tighter manufacturing tolerances would significantly improve capacitance in future iterations."
+        }
+      ],
+      skills: ["Fusion360", "Laser Cutting", "3D Printing", "Teamwork", "Project Management", "Research", "EE Lab"],
       images: {
         img1: smartConcreteCAD0,
         img2: smartConcreteCAD1,
@@ -41,37 +58,115 @@ const ProjectWindow = () => {
     {
       isVisible: false,
       title: "Custom Lighting Console",
-      paragraph: "Custom lighting console that uses an arduino microcontrolers to handle all sensor communication. Sensors includes: motorized and non-motorized linear potentiometers (faders), rotary encoders, and simple mx cherry keyboard buttons. Hosts a web server on a raspberry pi that can communicate with lights using the DMX-512 protocol. Can also act as a programmer wing for ETC consoles using the OSC communication protocol. All encased in a custom designed and 3D printed case modeled in Fusion360.",
+      sections: [
+        {
+          title: "Overview",
+          content: "A fully custom DMX lighting console designed and built from scratch. The console can control stage lighting directly via DMX-512 or act as a programmer wing for ETC consoles via OSC, making it flexible for a variety of live production environments."
+        },
+        {
+          title: "My Contributions",
+          content: "I designed and built the entire system independently — from the electronics to the enclosure. I programmed the Arduino microcontroller firmware to handle all sensor communication, developed the Raspberry Pi web server, and modeled and 3D printed the custom enclosure in Fusion360. I also performed all soldering for sensor integration."
+        },
+        {
+          title: "Technical Details",
+          content: "Sensor inputs include motorized and non-motorized linear potentiometers (faders), rotary encoders, and MX Cherry keyboard switches. The Raspberry Pi hosts a web server that communicates with lighting fixtures using the DMX-512 protocol. OSC support allows the console to interface with ETC consoles as a programmer wing."
+        }
+      ],
       skills: ["Fusion360", "Soldering", "Arduino", "Javascript"]
     },
     {
       isVisible: false,
       title: "16-Bit Calculator",
-      paragraph: "Created a calculator on a breadboard that only using basic logic gates. The logical gates were made with only 2N222 transistors. Created a simulation of the calculator in LTSpice.",
-      skills: ["LTSpice"]
+      sections: [
+        {
+          title: "Overview",
+          content: "A 16-bit calculator built on a breadboard using only discrete transistor-based logic gates — no integrated logic ICs. The project demonstrates a deep understanding of digital logic design from first principles."
+        },
+        {
+          title: "My Contributions",
+          content: "I designed the full logic circuit using 2N2222 transistors to construct each logic gate from scratch, then assembled and wired the circuit on a breadboard. I also built a full simulation of the calculator in LTSpice to verify the design before and after physical construction."
+        },
+        {
+          title: "Technical Details",
+          content: "All logic gates (AND, OR, NOT, XOR, etc.) are implemented exclusively with 2N2222 NPN transistors. The calculator handles 16-bit arithmetic operations. The LTSpice simulation was used to validate switching behavior and signal integrity."
+        }
+      ],
+      skills: ["LTSpice", "Circuit Design", "Soldering"]
     },
     {
       isVisible: false,
       title: "Digital Wrist Watch",
-      paragraph: "Custom watch with an LED display that displays the minute, hour, day, and month using binary. Runs off of a atmega328p microcontrollers and uses a DS3231 RTC. Case designed in Fusion360.",
-      skills: ["Fusion360", "micro-controller", "C", "Soldering"]
+      sections: [
+        {
+          title: "Overview",
+          content: "A custom wristwatch with an LED display that shows the current time and date in binary. Designed as a personal electronics project combining embedded firmware, circuit design, and mechanical enclosure design."
+        },
+        {
+          title: "My Contributions",
+          content: "I designed the custom enclosure in Fusion360, programmed the ATmega328P microcontroller in C to drive the LED display and communicate with the RTC module, and handled all soldering and assembly."
+        },
+        {
+          title: "Technical Details",
+          content: "The display encodes minute, hour, day, and month in binary across individual LEDs. Timekeeping is handled by a DS3231 real-time clock module for high accuracy. The ATmega328P serves as the main processing unit."
+        }
+      ],
+      skills: ["Fusion360", "Microcontrollers", "C", "Soldering"]
     },
     {
       isVisible: false,
       title: "Personal Portfolio Website",
-      paragraph: "A custom website designed and programmed to show others about who I am and my experience. This website was created using React, JS, HTML and CSS",
-      skills: ["react", "javascript"]
+      sections: [
+        {
+          title: "Overview",
+          content: "This portfolio website — designed and built entirely from scratch to present my background, skills, and projects in an engaging way. The interface is styled as a Windows XP desktop environment to give visitors a unique and memorable experience."
+        },
+        {
+          title: "My Contributions",
+          content: "I designed and developed the full site independently, including the Windows XP UI concept, draggable and resizable window components, taskbar, start menu, and all content. State management is handled with Zustand."
+        },
+        {
+          title: "Technical Details",
+          content: "Built with React and JavaScript. Features include draggable windows (react-draggable), a custom image rendering system for project descriptions, and a Zustand store for window state management."
+        }
+      ],
+      skills: ["React", "JavaScript", "HTML", "CSS", "Zustand"]
     },
     {
       isVisible: false,
       title: "Classroom Kernel",
-      paragraph: "AP CSP Project that is a online web interface to keep track of online classes. Can add classes with custom times and phone notification. Can also add video link to class and automatically join at class time.",
-      skills: ["javascript", "html"]
+      sections: [
+        {
+          title: "Overview",
+          content: "A web-based class management tool created for the AP Computer Science Principles course. Designed to help students organize and attend their online classes more efficiently during remote learning."
+        },
+        {
+          title: "My Contributions",
+          content: "I designed and built the full application independently, including the scheduling interface, notification system, and automated video-join functionality."
+        },
+        {
+          title: "Features",
+          content: "Supports adding classes with custom recurring schedules and phone notifications. Users can attach a video conference link to each class and the application will automatically join the meeting at the scheduled start time."
+        }
+      ],
+      skills: ["JavaScript", "HTML"]
     },
     {
       isVisible: false,
       title: "FDTD Simulation of a Distributed Bragg Reflector",
-      paragraph: "While working for DeLTA Labs at Northeastern University I was tasked with learning how to model various structures with a relatively new simulation package called Tidy3D. Tidy3D simulates electromagnetic behaviour using the Finite-Difference Time-Domain method. I was tasked with the end goal of simulating a, Distributed Bragg Reflector (DBR) with a micro-cavity, in order to create a design that would eventually be constructed by us at the lab. The DBR needed to use alternating layers of air and fused silica to have a resonance frequency of 2.5THz or around 120µm. To create, run and analyze the simulations I used a custom made python script. The python script given a wide variety of parameters would either construct a DBR to fit those parameters or to create one from scratch to match a desired end result. Once the program built the simulation it would send it to Tidy3D cloud servers where it would be solved. The data would then be download back to our local machine where it was then analyze by my program. [img0:left:40] My program would calculate and measure its resonance frequency as well as plot various data points that we found useful, like creating a 2D model of the DBR. Due to our desire to replicate the simulation by fabricating the DBR, the program also had to handle replicating real world manufacturing tolerances and defects. [img4:center:100][img1:hardright:300]",
+      sections: [
+        {
+          title: "Overview",
+          content: "Research project completed during my Co-op at DeLTA Labs, Northeastern University. The goal was to simulate a Distributed Bragg Reflector (DBR) with a micro-cavity using alternating layers of air and fused silica, targeting a resonance frequency of 2.5THz (~120µm). The simulation was intended to directly inform a physical device to be fabricated in the lab."
+        },
+        {
+          title: "My Contributions",
+          content: "I independently wrote a Python simulation framework that constructed, submitted, and analyzed DBR simulations using the Tidy3D FDTD package. [img0:left:40] Given a set of design parameters, the script would either build a DBR to match them or optimize the structure to achieve a desired resonance frequency. Simulations were submitted to Tidy3D's cloud servers and results were automatically downloaded and analyzed by my program. I also extended the program to model real-world manufacturing tolerances and defects to improve fabrication fidelity."
+        },
+        {
+          title: "Results",
+          content: "The program successfully calculated resonance frequencies and generated 2D structural models and transmission/reflectance plots useful for design validation. [img4:center:100][img1:hardright:300]"
+        }
+      ],
       skills: ["Python", "Tidy3D", "Research", "FDTD"],
       images: {
         img0: dbrIMG0,
@@ -84,14 +179,40 @@ const ProjectWindow = () => {
     {
       isVisible: false,
       title: "FDTD Simulation of a Grounded Co-Planar Superconducting Waveguide",
-      paragraph: "Created a simulation of a grounded co-planar superconducting waveguide using Tidy3D, a FDTD simulation software. Wrote a custom python program that given different parameters of the waveguide (width, height, thickness of superconducting layer, etc.) will automatically run a simulation and output the transmission spectrum. Also built a script that can generate a identical waveguide for use in Sonnet, a software used to design superconducting circuits. Used this program to compare the results of Tidy3D and Sonnet for various waveguides.",
+      sections: [
+        {
+          title: "Overview",
+          content: "Research project at DeLTA Labs to simulate a grounded co-planar superconducting waveguide and cross-validate results between two electromagnetic simulation packages: Tidy3D (FDTD) and Sonnet (frequency-domain)."
+        },
+        {
+          title: "My Contributions",
+          content: "I wrote a custom Python program that, given waveguide parameters (width, height, superconducting layer thickness, etc.), automatically constructed and ran FDTD simulations in Tidy3D and output the transmission spectrum. I also wrote a separate script to generate equivalent waveguide geometries in Sonnet for direct comparison."
+        },
+        {
+          title: "Results",
+          content: "Compared transmission spectra between Tidy3D and Sonnet across multiple waveguide configurations, helping validate the accuracy and applicability of each tool for superconducting circuit design at the lab."
+        }
+      ],
       skills: ["Python", "Sonnet", "Tidy3D", "Research", "FDTD"]
     },
     {
       isVisible: false,
       title: "UV Laser Distribution System",
-      paragraph: "Designed and aligned a multi-stage fourth harmonic generation setup to create a 15mW UV laser beam from a 2.5W infrared laser. Then designed and built a conduit system that would redirect the laser beam between labs for use in Time Resolved Transmission Electron Microscopy (TR-TEM).",
-      skills: ["Solidworks", "3D-Printing", "Non-linear Optics", "Optical Alignment & Beam Steering", "Laser Safety"]
+      sections: [
+        {
+          title: "Overview",
+          content: "Research project at DeLTA Labs to generate a UV laser beam and route it between labs for use in Time-Resolved Transmission Electron Microscopy (TR-TEM) experiments."
+        },
+        {
+          title: "My Contributions",
+          content: "I designed and aligned a multi-stage fourth harmonic generation (4HG) optical setup to convert a 2.5W infrared laser into a 15mW UV laser beam. I then designed and fabricated a custom beam conduit system to safely route the laser between laboratory spaces."
+        },
+        {
+          title: "Technical Details",
+          content: "The 4HG process required careful alignment of nonlinear optical crystals across multiple conversion stages. Enclosures and mounts were modeled in SolidWorks and 3D printed. All work was conducted in compliance with laser safety protocols."
+        }
+      ],
+      skills: ["SolidWorks", "3D Printing", "Non-linear Optics", "Optical Alignment & Beam Steering", "Laser Safety"]
     }
   ])
 
@@ -131,19 +252,20 @@ const ProjectWindow = () => {
         if (images[imgKey]) {
           const isHard = alignment.startsWith('hard');
           const imgElement = (
-            <img 
+            <img
               key={`img-${i}`}
-              src={images[imgKey]} 
-              alt={imgKey} 
+              src={images[imgKey]}
+              alt={imgKey}
               onClick={() => setSelectedImage({src: images[imgKey], alt: imgKey})}
               style={{
-                maxWidth: isHard ? '100%' : (width ? `${width}%` : (alignment === 'center' ? '100%' : '30%')), 
-                maxHeight: (width || alignment === 'center' || isHard) ? 'auto' : '10vh',
+                maxWidth: isHard ? '100%' : (width ? `${width}%` : (alignment === 'center' ? '100%' : '35%')),
+                maxHeight: alignment === 'center' ? '35vh' : (isHard ? 'none' : '20vh'),
+                objectFit: 'contain',
                 margin: isHard ? '0 0 10px 0' : (alignment === 'center' ? '10px auto' : (alignment === 'left' ? '0 15px 10px 0' : '0 0 10px 15px')),
                 display: 'block',
                 float: isHard ? 'none' : (alignment === 'center' ? 'none' : alignment),
-                cursor: 'pointer' 
-              }} 
+                cursor: 'pointer'
+              }}
             />
           );
 
@@ -223,31 +345,61 @@ const ProjectWindow = () => {
       )}
       {items.map((item) => {
         if (!item.isVisible) return null;
-        
-        const { mainContent, leftContent, rightContent } = renderParagraphWithImages(item.paragraph, item.images);
-        
+
+        const renderSection = (text, images, keyPrefix) => {
+          const { mainContent, leftContent, rightContent } = renderParagraphWithImages(text, images);
+          return (
+            <div key={keyPrefix} style={{display: 'flex', flexDirection: 'row', alignItems: 'flex-start'}}>
+              {leftContent.length > 0 && (
+                <div style={{marginRight: '15px', display: 'flex', flexDirection: 'column'}}>
+                  {leftContent}
+                </div>
+              )}
+              <p style={{flex: 1, margin: 0}}>{mainContent}</p>
+              {rightContent.length > 0 && (
+                <div style={{marginLeft: '15px', display: 'flex', flexDirection: 'column'}}>
+                  {rightContent}
+                </div>
+              )}
+            </div>
+          );
+        };
+
         return (
         <Window
           key={item.title}
           title={item.title}
           width="fit-content"
-          setVisibility={setVisibility}> 
+          initialY={0}
+          setVisibility={setVisibility}>
           <h1 style={{margin: "5px 0 0 0"}}>{item.title}</h1>
           {item.skills ? <div style={{margin: "7px 0", display: "flex", flexDirection: "row", alignItems: "center", flexWrap: "wrap"}}>Skills: {item.skills.map((skill) => {return(<p style={{margin: "0 5px"}}>{skill}</p>)})} </div> : ""}
-          <div style={{display: 'flex', flexDirection: 'row', alignItems: 'flex-start'}}>
-            {leftContent.length > 0 && (
-              <div style={{marginRight: '15px', display: 'flex', flexDirection: 'column'}}>
-                {leftContent}
+          {item.sections ? (
+            item.sections.map((section, idx) => (
+              <div key={idx} style={{marginBottom: '10px'}}>
+                <h3 style={{margin: '8px 0 3px 0', fontSize: '0.95em', borderBottom: '1px solid #aaa', paddingBottom: '2px'}}>{section.title}</h3>
+                {renderSection(section.content, item.images, `section-${idx}`)}
               </div>
-            )}
-            <p style={{flex: 1, margin: 0}}>{mainContent}</p>
-            {rightContent.length > 0 && (
-              <div style={{marginLeft: '15px', display: 'flex', flexDirection: 'column'}}>
-                {rightContent}
-              </div>
-            )}
-          </div>
-        </Window>)  
+            ))
+          ) : (() => {
+            const { mainContent, leftContent, rightContent } = renderParagraphWithImages(item.paragraph, item.images);
+            return (
+            <div style={{display: 'flex', flexDirection: 'row', alignItems: 'flex-start'}}>
+              {leftContent.length > 0 && (
+                <div style={{marginRight: '15px', display: 'flex', flexDirection: 'column'}}>
+                  {leftContent}
+                </div>
+              )}
+              <p style={{flex: 1, margin: 0}}>{mainContent}</p>
+              {rightContent.length > 0 && (
+                <div style={{marginLeft: '15px', display: 'flex', flexDirection: 'column'}}>
+                  {rightContent}
+                </div>
+              )}
+            </div>
+            );
+          })()}
+        </Window>)
       })}
     </div>
 
