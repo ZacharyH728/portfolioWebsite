@@ -9,7 +9,7 @@ const AboutMe = () => {
   if (!aboutMeOpen) return null;
 
   return (
-    <Window title="About Me" width='min(70%, 800px)' minWidth="300px" height="fit-content" className="aboutMe" setVisibility={toggleAboutMe}>
+    <Window title="About Me" width='min(70%, 800px)' minWidth="300px" height="fit-content" className="aboutMe" defaultFullscreen={true} setVisibility={toggleAboutMe}>
       <div style={{ overflow: "hidden" }}>
         <img
           style={{

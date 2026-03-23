@@ -313,10 +313,19 @@ const ProjectWindow = () => {
     return { mainContent: result, leftContent, rightContent };
   };
 
+  const sideGapWidth = Math.round((1 - 0.55) / 2 * window.innerWidth);
+
   return (
     <div>
     {projectsOpen && (
-    <Window title="File Explorer / Projects" width={600} setVisibility={toggleProjects}>
+    <Window
+      title="File Explorer / Projects"
+      width={sideGapWidth}
+      height={window.innerHeight - 55}
+      initialX={window.innerWidth - sideGapWidth}
+      initialY={0}
+      setVisibility={toggleProjects}
+    >
       <div className='projectGrid'>
       {items.map((item) => (
             <ProjectIcon 
@@ -371,6 +380,7 @@ const ProjectWindow = () => {
           title={item.title}
           width="fit-content"
           initialY={0}
+          defaultFullscreen={true}
           setVisibility={setVisibility}>
           <h1 style={{margin: "5px 0 0 0"}}>{item.title}</h1>
           {item.skills ? <div style={{margin: "7px 0", display: "flex", flexDirection: "row", alignItems: "center", flexWrap: "wrap"}}>Skills: {item.skills.map((skill) => {return(<p style={{margin: "0 5px"}}>{skill}</p>)})} </div> : ""}
