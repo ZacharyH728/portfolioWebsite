@@ -15,6 +15,9 @@ const useActiveWindowStore = create((set) => ({
 
   tutorialOpen: false,
   toggleTutorial: () => set((state) => ({tutorialOpen: !state.tutorialOpen})),
+
+  viewerImage: null,
+  setViewerImage: (img) => set({ viewerImage: img }),
 }));
 
 export default useActiveWindowStore;

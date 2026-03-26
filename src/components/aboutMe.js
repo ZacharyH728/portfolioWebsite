@@ -2,6 +2,7 @@ import React from "react";
 import Window from "./window";
 import profilePicture from "../icons/profilePicture.jpg"
 import useActiveWindowStore from "./store";
+import ClickableImage from "./ClickableImage";
 
 const AboutMe = () => {
   const {aboutMeOpen, toggleAboutMe} = useActiveWindowStore();
@@ -11,7 +12,7 @@ const AboutMe = () => {
   return (
     <Window title="About Me" width='min(70%, 800px)' minWidth="300px" height="fit-content" className="aboutMe" defaultFullscreen={true} setVisibility={toggleAboutMe}>
       <div style={{ overflow: "hidden" }}>
-        <img
+        <ClickableImage
           style={{
             float: "left",
             width: "clamp(120px, 30%, 240px)",

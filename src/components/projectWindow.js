@@ -19,8 +19,7 @@ import dbrIMG3 from "../icons/DBR/reflectanceFrequency.png"
 import dbrIMG4 from "../icons/DBR/tranmissionHistogram.png"
 
 const ProjectWindow = () => {
-  const {projectsOpen, toggleProjects} = useActiveWindowStore();
-  const [selectedImage, setSelectedImage] = useState(null);
+  const {projectsOpen, toggleProjects, setViewerImage} = useActiveWindowStore();
   const [items, setItems] = useState([
     {
       isVisible: false,
@@ -256,7 +255,7 @@ const ProjectWindow = () => {
               key={`img-${i}`}
               src={images[imgKey]}
               alt={imgKey}
-              onClick={() => setSelectedImage({src: images[imgKey], alt: imgKey})}
+              onClick={() => setViewerImage({src: images[imgKey], alt: imgKey})}
               style={{
                 maxWidth: isHard ? '100%' : (width ? `${width}%` : (alignment === 'center' ? '100%' : '35%')),
                 maxHeight: alignment === 'center' ? '35vh' : (isHard ? 'none' : '20vh'),
@@ -337,22 +336,7 @@ const ProjectWindow = () => {
       </div>
     </Window>
     )}
-      {selectedImage && (
-        <Window 
-          title={selectedImage.alt || "Image Viewer"} 
-          setVisibility={() => setSelectedImage(null)}
-          width="auto"
-          height="auto"
-          z={200}
-        >
-          <img 
-            src={selectedImage.src} 
-            alt={selectedImage.alt} 
-            style={{width: '100%', height: '100%', objectFit: 'contain'}} 
-          />
-        </Window>
-      )}
-      {items.map((item) => {
+{items.map((item) => {
         if (!item.isVisible) return null;
 
         const renderSection = (text, images, keyPrefix) => {

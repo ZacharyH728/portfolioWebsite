@@ -7,6 +7,7 @@ import { Component } from 'react';
 import background from "./icons/background.jpg"
 import ContactMe from './components/contactMe';
 import Tutorial from './components/tutorial';
+import ImageViewer from './components/ImageViewer';
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
         <AboutMe/>
         <ContactMe/>
         <Tutorial/>
+        <ImageViewer/>
         <Taskbar/>
       </div>
     )
