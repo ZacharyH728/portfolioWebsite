@@ -39,7 +39,7 @@ const ProjectWindow = () => {
         },
         {
           title: "Results & Findings",
-          content: "Testing measured a capacitance of only 1µF. Several manufacturing issues limited performance: the mold lid design constrained the pressure applied during curing, causing uneven puck thickness and reduced membrane contact area. The concrete aggregate was also too coarse for the puck size, affecting surface quality and structural integrity. [img5:center] At higher carbon black ratios (near 10%), the pucks became structurally compromised and could be broken by hand. [img8:right:20] These findings suggest that finer aggregate, a revised mold design, and tighter manufacturing tolerances would significantly improve capacitance in future iterations."
+          content: "Testing measured a capacitance of only 1µF. Several manufacturing issues limited performance: the mold lid design constrained the pressure applied during curing, causing uneven puck thickness and reduced membrane contact area. The concrete aggregate was also too coarse for the puck size, affecting surface quality and structural integrity. [img5:center] At higher carbon black ratios (near 10%), the pucks became structurally compromised and could be broken by hand. [img8:left:20] These findings suggest that finer aggregate, a revised mold design, and tighter manufacturing tolerances would significantly improve capacitance in future iterations."
         }
       ],
       skills: ["Fusion360", "Laser Cutting", "3D Printing", "Teamwork", "Project Management", "Research", "EE Lab"],
@@ -163,7 +163,7 @@ const ProjectWindow = () => {
         },
         {
           title: "Results",
-          content: "The program successfully calculated resonance frequencies and generated 2D structural models and transmission/reflectance plots useful for design validation. [img4:center:100][img1:hardright:300]"
+          content: "The program successfully calculated resonance frequencies and generated 2D structural models and transmission/reflectance plots useful for design validation. [img4:center:100][img1:left:300]"
         }
       ],
       skills: ["Python", "Tidy3D", "Research", "FDTD"],
